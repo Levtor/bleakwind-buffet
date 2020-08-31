@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: SmokehouseSkeleton.cs
+    * Purpose: Class used to represent an order of a Smokehouse Skeleton
+    */
     class SmokehouseSkeleton
     {
         private Boolean sausageLink = true;

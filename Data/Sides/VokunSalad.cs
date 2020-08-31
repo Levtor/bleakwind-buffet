@@ -5,6 +5,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: VokunSalad.cs
+    * Purpose: Class used to represent an order of a Vokun Salad
+    */
     class VokunSalad
     {
         private Size size = Size.Small;

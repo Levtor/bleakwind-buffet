@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: DoubleDraugr.cs
+    * Purpose: Class used to represent an order of a Double Draugr
+    */
     class DoubleDraugr
     {
         private Boolean bun = true;

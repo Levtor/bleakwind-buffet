@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: PhillyPoacher.cs
+    * Purpose: Class used to represent an order of a Philly Poacher
+    */
     class PhillyPoacher
     {
         private Boolean sirloin = true;

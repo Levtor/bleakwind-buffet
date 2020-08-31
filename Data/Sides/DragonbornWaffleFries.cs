@@ -5,6 +5,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: DragonbornWaffleFries.cs
+    * Purpose: Class used to represent an order of Dragonborn Waffle Fries
+    */
     class DragonbornWaffleFries
     {
         private Size size = Size.Small;

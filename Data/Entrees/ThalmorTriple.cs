@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: ThalmorTriple.cs
+    * Purpose: Class used to represent an order of a Thalmor Triple
+    */
     class ThalmorTriple
     {
         private Boolean bun = true;

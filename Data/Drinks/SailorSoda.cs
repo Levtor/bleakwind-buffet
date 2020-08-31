@@ -6,6 +6,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: SailorSoda.cs
+    * Purpose: Class used to represent an order of a Sailor Soda
+    */
     class SailorSoda
     {
         private SodaFlavor flavor = SodaFlavor.Cherry;

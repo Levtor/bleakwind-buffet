@@ -5,6 +5,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: FriedMiraak.cs
+    * Purpose: Class used to represent an order of Fried Miraak
+    */
     class FriedMiraak
     {
         private Size size = Size.Small;

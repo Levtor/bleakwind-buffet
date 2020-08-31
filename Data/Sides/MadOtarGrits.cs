@@ -5,6 +5,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: MadOtarGrits.cs
+    * Purpose: Class used to represent an order of Mad Otar Grits
+    */
     class MadOtarGrits
     {
         private Size size = Size.Small;

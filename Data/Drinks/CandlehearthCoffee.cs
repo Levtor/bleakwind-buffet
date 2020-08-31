@@ -6,6 +6,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: CandlehearthCoffee.cs
+    * Purpose: Class used to represent an order of a Candlehearth Coffee
+    */
     class CandlehearthCoffee
     {
         private Boolean ice = false;

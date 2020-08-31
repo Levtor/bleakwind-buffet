@@ -6,6 +6,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: MarkarthMilk.cs
+    * Purpose: Class used to represent an order of a Markarth Milk
+    */
     class MarkarthMilk
     {
         private Boolean ice = false;

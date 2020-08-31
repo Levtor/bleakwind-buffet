@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: GardenOrcOmelette.cs
+    * Purpose: Class used to represent an order of a Garden Orc Omelette
+    */
     class GardenOrcOmelette
     {
         private Boolean broccoli = true;

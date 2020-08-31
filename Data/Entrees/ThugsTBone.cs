@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+    * Author: Joseph Hathaway
+    * Class name: ThugsTBone.cs
+    * Purpose: Class used to represent an order of a Thugs T-Bone
+    */
     class ThugsTBone
     {
         public double Price

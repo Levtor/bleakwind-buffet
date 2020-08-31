@@ -6,6 +6,12 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+
+    /*
+    * Author: Joseph Hathaway
+    * Class name: AretinoAppleJuice.cs
+    * Purpose: Class used to represent an order of an Aretino Apple Juice
+    */
     class AretinoAppleJuice
     {
         private Boolean ice = false;
