@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: GardenOrcOmelette.cs
     * Purpose: Class used to represent an order of a Garden Orc Omelette
     */
-    class GardenOrcOmelette
+    public class GardenOrcOmelette
     {
         private Boolean broccoli = true;
         private Boolean mushrooms = true;

@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Drinks
     * Class name: WarriorWater.cs
     * Purpose: Class used to represent an order of a Warrior Water
     */
-    class WarriorWater
+    public class WarriorWater
     {
         private Boolean ice = true;
         private Boolean lemon = false;

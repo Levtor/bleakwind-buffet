@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: DoubleDraugr.cs
     * Purpose: Class used to represent an order of a Double Draugr
     */
-    class DoubleDraugr
+    public class DoubleDraugr
     {
         private Boolean bun = true;
         private Boolean ketchup = true;

@@ -10,7 +10,7 @@ namespace BleakwindBuffet.Data.Sides
     * Class name: FriedMiraak.cs
     * Purpose: Class used to represent an order of Fried Miraak
     */
-    class FriedMiraak
+    public class FriedMiraak
     {
         private Size size = Size.Small;
 

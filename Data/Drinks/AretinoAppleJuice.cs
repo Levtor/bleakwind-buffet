@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
     * Class name: AretinoAppleJuice.cs
     * Purpose: Class used to represent an order of an Aretino Apple Juice
     */
-    class AretinoAppleJuice
+    public class AretinoAppleJuice
     {
         private Boolean ice = false;
 

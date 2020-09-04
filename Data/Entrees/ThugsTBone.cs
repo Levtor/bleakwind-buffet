@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: ThugsTBone.cs
     * Purpose: Class used to represent an order of a Thugs T-Bone
     */
-    class ThugsTBone
+    public class ThugsTBone
     {
         public double Price
         {

@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: ThalmorTriple.cs
     * Purpose: Class used to represent an order of a Thalmor Triple
     */
-    class ThalmorTriple
+    public class ThalmorTriple
     {
         private Boolean bun = true;
         private Boolean ketchup = true;

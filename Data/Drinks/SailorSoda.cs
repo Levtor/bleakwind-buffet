@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Drinks
     * Class name: SailorSoda.cs
     * Purpose: Class used to represent an order of a Sailor Soda
     */
-    class SailorSoda
+    public class SailorSoda
     {
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
