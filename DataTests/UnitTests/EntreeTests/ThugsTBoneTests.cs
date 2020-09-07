@@ -14,21 +14,33 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
+            ThugsTBone order = new ThugsTBone();
+
+            Assert.Equal(order.Price, 6.44);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
+            ThugsTBone order = new ThugsTBone();
+
+            Assert.Equal(order.Calories, 982);
         }
 
         [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
+            ThugsTBone order = new ThugsTBone();
+
+            Assert.Empty(order.SpecialInstructions);
         }
 
         [Fact]
         public void ShouldReturnCorrectToString()
         {
+            ThugsTBone order = new ThugsTBone();
+
+            Assert.Equal(order.ToString(), "Thugs T-Bone");
         }
     }
 }

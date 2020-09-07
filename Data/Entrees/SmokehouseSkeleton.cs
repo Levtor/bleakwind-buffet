@@ -16,7 +16,10 @@ namespace BleakwindBuffet.Data.Entrees
         private Boolean hashBrowns = true;
         private Boolean pancake = true;
 
-        public Boolean SausgeLink
+        /// <value>
+        /// Whether the order has sausage
+        /// </value>
+        public Boolean SausageLink
         {
             get { return sausageLink; }
             set
@@ -25,6 +28,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has eggs
+        /// </value>
         public Boolean Egg
         {
             get { return egg; }
@@ -34,6 +40,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has hashbrowns
+        /// </value>
         public Boolean HashBrowns
         {
             get { return hashBrowns; }
@@ -43,6 +52,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has pancakes
+        /// </value>
         public Boolean Pancake
         {
             get { return pancake; }
@@ -52,11 +64,17 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get { return 5.62; }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get { return 602; }
@@ -64,6 +82,9 @@ namespace BleakwindBuffet.Data.Entrees
 
         private List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -76,6 +97,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             return "Smokehouse Skeleton";

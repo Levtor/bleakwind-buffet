@@ -1,25 +1,35 @@
-﻿using System;
+﻿/*
+* Author: Joseph Hathaway
+* Class name: FriedMiraak.cs
+* Purpose: Class used to represent an order of Fried Miraak
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    /*
-    * Author: Joseph Hathaway
-    * Class name: FriedMiraak.cs
-    * Purpose: Class used to represent an order of Fried Miraak
-    */
+    /// <summary>
+    /// A class representing an order of Fried Miraak
+    /// </summary>
     public class FriedMiraak
     {
         private Size size = Size.Small;
 
+        /// <value>
+        /// The size of the order
+        /// </value>
         public Size Size
         {
             get { return size; }
             set { size = value; }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get
@@ -38,6 +48,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get
@@ -56,11 +69,17 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get { return new List<string>(); }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

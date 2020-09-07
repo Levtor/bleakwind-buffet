@@ -15,6 +15,9 @@ namespace BleakwindBuffet.Data.Entrees
         private Boolean onion = true;
         private Boolean roll = true;
 
+        /// <value>
+        /// Whether the order has sirloin
+        /// </value>
         public Boolean Sirloin
         {
             get { return sirloin; }
@@ -24,6 +27,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has onions
+        /// </value>
         public Boolean Onion
         {
             get { return onion; }
@@ -33,6 +39,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has a roll
+        /// </value>
         public Boolean Roll
         {
             get { return roll; }
@@ -42,11 +51,17 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get { return 7.23; }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get { return 784; }
@@ -54,6 +69,9 @@ namespace BleakwindBuffet.Data.Entrees
 
         private List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -65,6 +83,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             return "Philly Poacher";

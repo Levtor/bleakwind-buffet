@@ -22,6 +22,9 @@ namespace BleakwindBuffet.Data.Entrees
         private Boolean bacon = true;
         private Boolean egg = true;
 
+        /// <value>
+        /// Whether the order has a bun
+        /// </value>
         public Boolean Bun
         {
             get { return bun; }
@@ -31,6 +34,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has ketchup
+        /// </value>
         public Boolean Ketchup
         {
             get { return ketchup; }
@@ -40,6 +46,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has mustard
+        /// </value>
         public Boolean Mustard
         {
             get { return mustard; }
@@ -49,6 +58,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has pickles
+        /// </value>
         public Boolean Pickle
         {
             get { return pickle; }
@@ -58,6 +70,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has cheese
+        /// </value>
         public Boolean Cheese
         {
             get { return cheese; }
@@ -67,6 +82,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has tomato
+        /// </value>
         public Boolean Tomato
         {
             get { return tomato; }
@@ -76,6 +94,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has lettuce
+        /// </value>
         public Boolean Lettuce
         {
             get { return lettuce; }
@@ -85,6 +106,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has mayo
+        /// </value>
         public Boolean Mayo
         {
             get { return mayo; }
@@ -94,6 +118,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has bacon
+        /// </value>
         public Boolean Bacon
         {
             get { return bacon; }
@@ -103,6 +130,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has egg
+        /// </value>
         public Boolean Egg
         {
             get { return egg; }
@@ -112,11 +142,17 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get { return 8.32; }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get { return 943; }
@@ -124,6 +160,9 @@ namespace BleakwindBuffet.Data.Entrees
 
         private List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -142,6 +181,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             return "Thalmor Triple";

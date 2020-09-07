@@ -1,27 +1,38 @@
-﻿using System;
+﻿/*
+* Author: Joseph Hathaway
+* Class name: WarriorWater.cs
+* Purpose: Class used to represent an order of a Warrior Water
+*/
+    
+
+using System;
 using System.Collections.Generic;
 using System.Runtime;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
-{
-    /*
-    * Author: Joseph Hathaway
-    * Class name: WarriorWater.cs
-    * Purpose: Class used to represent an order of a Warrior Water
-    */
+{   
+    /// <summary>
+    /// A class representing an order of a Warrior Water
+    /// </summary>
     public class WarriorWater
     {
         private Boolean ice = true;
         private Boolean lemon = false;
-
+        
+        /// <value>
+        /// Whether the order has ice
+        /// </value>
         public Boolean Ice
         {
             get { return ice; }
             set { ice = value; }
         }
 
+        /// <value>
+        /// Whether the order has a lemon
+        /// </value>
         public Boolean Lemon
         {
             get { return lemon; }
@@ -30,12 +41,18 @@ namespace BleakwindBuffet.Data.Drinks
 
         private BleakwindBuffet.Data.Enums.Size size = BleakwindBuffet.Data.Enums.Size.Small;
 
+        /// <value>
+        /// The size of the order
+        /// </value>
         public BleakwindBuffet.Data.Enums.Size Size
         {
             get { return size; }
             set { size = value; }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get
@@ -55,6 +72,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get
@@ -76,6 +96,9 @@ namespace BleakwindBuffet.Data.Drinks
 
         List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             
@@ -87,6 +110,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

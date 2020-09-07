@@ -17,12 +17,18 @@ namespace BleakwindBuffet.Data.Entrees
         private Boolean pickle = true;
         private Boolean cheese = true;
 
+        /// <value>
+        /// Whether the order has a bun
+        /// </value>
         public Boolean Bun
         {
             get { return bun; }
             set { bun = value; }
         }
 
+        /// <value>
+        /// Whether the order has ketchup
+        /// </value>
         public Boolean Ketchup
         {
             get { return ketchup; }
@@ -32,6 +38,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has mustard
+        /// </value>
         public Boolean Mustard
         {
             get { return mustard; }
@@ -41,6 +50,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has a pickle
+        /// </value>
         public Boolean Pickle
         {
             get { return pickle; }
@@ -50,6 +62,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has cheese
+        /// </value>
         public Boolean Cheese
         {
             get { return cheese; }
@@ -59,11 +74,17 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get { return 6.32; }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get { return 743; }
@@ -71,6 +92,9 @@ namespace BleakwindBuffet.Data.Entrees
 
         private List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -84,6 +108,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             return "Briarheart Burger";

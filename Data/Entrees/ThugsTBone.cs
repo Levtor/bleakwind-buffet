@@ -11,11 +11,17 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class ThugsTBone
     {
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get { return 6.44; }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get { return 982; }
@@ -23,11 +29,17 @@ namespace BleakwindBuffet.Data.Entrees
 
         private List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get { return specs; }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             return "Thugs T-Bone";

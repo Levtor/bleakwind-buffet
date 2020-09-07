@@ -16,6 +16,9 @@ namespace BleakwindBuffet.Data.Entrees
         private Boolean tomato = true;
         private Boolean cheddar = true;
 
+        /// <value>
+        /// Whether the order has broccoli
+        /// </value>
         public Boolean Broccoli
         {
             get { return broccoli; }
@@ -25,6 +28,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has mushrooms
+        /// </value>
         public Boolean Mushrooms
         {
             get { return mushrooms; }
@@ -34,6 +40,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has tomato
+        /// </value>
         public Boolean Tomato
         {
             get { return tomato; }
@@ -43,6 +52,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// Whether the order has cheddar
+        /// </value>
         public Boolean Cheddar
         {
             get { return cheddar; }
@@ -52,11 +64,17 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <value>
+        /// The price of the order
+        /// </value>
         public double Price
         {
             get { return 4.57; }
         }
 
+        /// <value>
+        /// The calories of the order
+        /// </value>
         public uint Calories
         {
             get { return 404; }
@@ -64,6 +82,9 @@ namespace BleakwindBuffet.Data.Entrees
 
         private List<string> specs = new List<string>();
 
+        /// <value>
+        /// Special insructions for the order
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -76,6 +97,9 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <summary>
+        /// Returns a string describing the order
+        /// </summary>
         public override string ToString()
         {
             return "Garden Orc Omelette";
