@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -24,7 +24,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone order = new ThugsTBone();
 
-            Assert.Equal(order.Calories, 982);
+            Assert.Equal((decimal)order.Calories, 982);
         }
 
         [Fact]

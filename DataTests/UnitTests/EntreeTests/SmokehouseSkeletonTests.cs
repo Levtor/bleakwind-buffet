@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -100,7 +100,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton order = new SmokehouseSkeleton();
 
-            Assert.Equal(order.Calories, 602);
+            Assert.Equal((decimal)order.Calories, 602);
         }
 
         [Theory]
@@ -117,24 +117,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             order.Pancake = includePancake;
             bool empty = true;
 
-            if (includeSausage)
+            if (!includeSausage)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold sausage");
+                Assert.Contains("Hold sausage", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeEgg)
+            if (!includeEgg)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold eggs");
+                Assert.Contains("Hold eggs", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeHashbrowns)
+            if (!includeHashbrowns)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold hash browns");
+                Assert.Contains("Hold hash browns", order.SpecialInstructions);
                 empty = false;
             }
-            if (includePancake)
+            if (!includePancake)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold pancakes");
+                Assert.Contains("Hold pancakes", order.SpecialInstructions);
                 empty = false;
             }
             if (empty) Assert.Empty(order.SpecialInstructions);

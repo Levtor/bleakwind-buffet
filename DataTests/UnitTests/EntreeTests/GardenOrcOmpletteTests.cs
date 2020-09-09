@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -100,7 +100,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette order = new GardenOrcOmelette();
 
-            Assert.Equal(order.Calories, 404);
+            Assert.Equal((decimal)order.Calories, 404);
         }
 
         [Theory]
@@ -117,24 +117,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             order.Cheddar = includeCheddar;
             bool empty = true;
 
-            if (includeBroccoli)
+            if (!includeBroccoli)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold broccoli");
+                Assert.Contains("Hold broccoli", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeMushrooms)
+            if (!includeMushrooms)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold mushrooms");
+                Assert.Contains("Hold mushrooms", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeTomato)
+            if (!includeTomato)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold tomato");
+                Assert.Contains("Hold tomato", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeCheddar)
+            if (!includeCheddar)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold cheddar");
+                Assert.Contains("Hold cheddar", order.SpecialInstructions);
                 empty = false;
             }
             if (empty) Assert.Empty(order.SpecialInstructions);

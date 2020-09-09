@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -164,7 +164,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             order.Lettuce = false;
             Assert.False(order.Lettuce);
-            order.Cheese = true;
+            order.Lettuce = true;
             Assert.True(order.Lettuce);
         }
 
@@ -214,7 +214,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple order = new ThalmorTriple();
 
-            Assert.Equal(order.Calories, 943);
+            Assert.Equal((decimal)order.Calories, 943);
         }
 
         [Theory]
@@ -239,54 +239,54 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             order.Egg = includeEgg;
             bool empty = true;
 
-            if (includeBun)
+            if (!includeBun)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold bun");
+                Assert.Contains("Hold bun", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeKetchup)
+            if (!includeKetchup)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold ketchup");
+                Assert.Contains("Hold ketchup", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeMustard)
+            if (!includeMustard)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold mustard");
+                Assert.Contains("Hold mustard", order.SpecialInstructions);
                 empty = false;
             }
-            if (includePickle)
+            if (!includePickle)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold pickle");
+                Assert.Contains("Hold pickle", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeCheese)
+            if (!includeCheese)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold cheese");
+                Assert.Contains("Hold cheese", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeTomato)
+            if (!includeTomato)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold tomato");
+                Assert.Contains("Hold tomato", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeLettuce)
+            if (!includeLettuce)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold lettuce");
+                Assert.Contains("Hold lettuce", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeMayo)
+            if (!includeMayo)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold Mayo");
+                Assert.Contains("Hold mayo", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeBacon)
+            if (!includeBacon)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold bacon");
+                Assert.Contains("Hold bacon", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeEgg)
+            if (!includeEgg)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold egg");
+                Assert.Contains("Hold egg", order.SpecialInstructions);
                 empty = false;
             }
             if (empty) Assert.Empty(order.SpecialInstructions);

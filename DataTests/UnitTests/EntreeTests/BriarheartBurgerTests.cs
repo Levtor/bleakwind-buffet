@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 using System.Linq.Expressions;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
@@ -113,7 +113,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger order = new BriarheartBurger();
 
-            Assert.Equal(order.Price, 6.32);
+            Assert.Equal(6.32, order.Price);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger order = new BriarheartBurger();
 
-            Assert.Equal(order.Calories, 743);
+            Assert.Equal(743, (decimal)order.Calories);
         }
 
         [Theory]
@@ -139,32 +139,35 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             order.Cheese = includeCheese;
             bool empty = true;
 
-            if (includeBun)
+            if (!includeBun)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold bun");
+                Assert.Contains("Hold bun", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeKetchup)
+            if (!includeKetchup)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold ketchup");
+                Assert.Contains("Hold ketchup", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeMustard)
+            if (!includeMustard)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold mustard");
+                Assert.Contains("Hold mustard", order.SpecialInstructions);
                 empty = false;
             }
-            if (includePickle)
+            if (!includePickle)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold pickle");
+                Assert.Contains("Hold pickle", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeCheese)
+            if (!includeCheese)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold cheese");
+                Assert.Contains("Hold cheese", order.SpecialInstructions);
                 empty = false;
             }
-            if (empty) Assert.Empty(order.SpecialInstructions);
+            if (empty)
+            {
+                Assert.Empty(order.SpecialInstructions);
+            }
         }
 
         [Fact]

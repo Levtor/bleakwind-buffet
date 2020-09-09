@@ -7,7 +7,7 @@ using System;
 
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
@@ -108,8 +108,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 
             order.Ice = includeIce;
             order.Lemon = includeLemon;
-            if (!includeIce) Assert.Contains(order.SpecialInstructions, "Hold ice");
-            if (includeLemon) Assert.Contains(order.SpecialInstructions, "Add lemon");
+            if (!includeIce) Assert.Contains("Hold ice", order.SpecialInstructions);
+            if (includeLemon) Assert.Contains("Add lemon", order.SpecialInstructions);
             if (includeIce && !includeLemon) Assert.Empty(order.SpecialInstructions);
         }
 
@@ -122,7 +122,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater order = new WarriorWater();
 
             order.Size = size;
-            Assert.Equal(order.ToString, name);
+            Assert.Equal(order.ToString(), name);
         }
     }
 }

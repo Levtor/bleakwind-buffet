@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -81,7 +81,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher order = new PhillyPoacher();
 
-            Assert.Equal(order.Calories, 784);
+            Assert.Equal((decimal)order.Calories, 784);
         }
 
         [Theory]
@@ -97,19 +97,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             order.Roll = includeRoll;
             bool empty = true;
 
-            if (includeSirloin)
+            if (!includeSirloin)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold sirloin");
+                Assert.Contains("Hold sirloin", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeOnion)
+            if (!includeOnion)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold onions");
+                Assert.Contains("Hold onions", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeRoll)
+            if (!includeRoll)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold roll");
+                Assert.Contains("Hold roll", order.SpecialInstructions);
                 empty = false;
             }
             if (empty) Assert.Empty(order.SpecialInstructions);

@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
@@ -84,7 +84,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice order = new AretinoAppleJuice();
 
             order.Ice = includeIce;
-            if (includeIce) Assert.Contains(order.SpecialInstructions, "Add ice");
+            if (includeIce) Assert.Contains("Add ice", order.SpecialInstructions);
             else Assert.Empty(order.SpecialInstructions);
         }
 
@@ -97,7 +97,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice order = new AretinoAppleJuice();
 
             order.Size = size;
-            Assert.Equal(order.ToString, name);
+            Assert.Equal(order.ToString(), name);
         }
     }
 }

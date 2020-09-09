@@ -7,7 +7,7 @@ using System;
 
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
@@ -113,7 +113,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda order = new SailorSoda();
 
             order.Ice = includeIce;
-            if(!includeIce) Assert.Contains(order.SpecialInstructions, "Hold ice");
+            if(!includeIce) Assert.Contains("Hold ice", order.SpecialInstructions);
             else Assert.Empty(order.SpecialInstructions);
         }
         
@@ -145,9 +145,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda order = new SailorSoda();
 
-            order.SodaFlavor = flavor;
+            order.Flavor = flavor;
             order.Size = size;
-            Assert.Equal(order.ToString, name);
+            Assert.Equal(order.ToString(), name);
         }
     }
 }

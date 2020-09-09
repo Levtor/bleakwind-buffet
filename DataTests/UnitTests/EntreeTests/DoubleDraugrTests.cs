@@ -5,7 +5,7 @@
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -148,7 +148,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             order.Lettuce = false;
             Assert.False(order.Lettuce);
-            order.Cheese = true;
+            order.Lettuce = true;
             Assert.True(order.Lettuce);
         }
 
@@ -176,7 +176,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             DoubleDraugr order = new DoubleDraugr();
 
-            Assert.Equal(order.Calories, 843);
+            Assert.Equal((decimal)order.Calories, 843);
         }
 
         [Theory]
@@ -198,44 +198,44 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             order.Mayo = includeMayo;
             bool empty = true;
 
-            if (includeBun)
+            if (!includeBun)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold bun");
+                Assert.Contains("Hold bun", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeKetchup)
+            if (!includeKetchup)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold ketchup");
+                Assert.Contains("Hold ketchup", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeMustard)
+            if (!includeMustard)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold mustard");
+                Assert.Contains("Hold mustard", order.SpecialInstructions);
                 empty = false;
             }
-            if (includePickle)
+            if (!includePickle)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold pickle");
+                Assert.Contains("Hold pickle", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeCheese)
+            if (!includeCheese)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold cheese");
+                Assert.Contains("Hold cheese", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeTomato)
+            if (!includeTomato)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold tomato");
+                Assert.Contains("Hold tomato", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeLettuce)
+            if (!includeLettuce)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold lettuce");
+                Assert.Contains("Hold lettuce", order.SpecialInstructions);
                 empty = false;
             }
-            if (includeMayo)
+            if (!includeMayo)
             {
-                Assert.Contains(order.SpecialInstructions, "Hold Mayo");
+                Assert.Contains("Hold mayo", order.SpecialInstructions);
                 empty = false;
             }
             if (empty) Assert.Empty(order.SpecialInstructions);
@@ -246,7 +246,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             DoubleDraugr order = new DoubleDraugr();
 
-            Assert.Equal(order.ToString(), "Briarheart Burger");
+            Assert.Equal("Double Draugr", order.ToString());
         }
     }
 }
