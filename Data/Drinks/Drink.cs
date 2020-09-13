@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public abstract class Drink : IOrderItem
     {
-        private Size size;
+        private Size size = Size.Small;
 
         /// <summary>
         /// The size of the drink
