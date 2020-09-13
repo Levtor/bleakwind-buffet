@@ -4,7 +4,7 @@
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 
@@ -13,11 +13,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class DragonbornWaffleFriesTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            DragonbornWaffleFries order = new DragonbornWaffleFries();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeASide()
+        {
+            DragonbornWaffleFries order = new DragonbornWaffleFries();
+
+            Assert.IsAssignableFrom<Side>(order);
+        }
+
+        [Fact]
         public void ShouldBeSmallByDefault()
         {
             DragonbornWaffleFries order = new DragonbornWaffleFries();
 
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -34,11 +50,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             DragonbornWaffleFries order = new DragonbornWaffleFries();
 
             order.Size = Size.Large;
-            Assert.Equal(order.Size, Size.Large);
+            Assert.Equal(Size.Large, order.Size);
             order.Size = Size.Medium;
-            Assert.Equal(order.Size, Size.Medium);
+            Assert.Equal(Size.Medium, order.Size);
             order.Size = Size.Small;
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Theory]

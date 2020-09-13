@@ -4,7 +4,7 @@
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using System.Linq.Expressions;
 
@@ -12,7 +12,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
     {
-        
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            BriarheartBurger order = new BriarheartBurger();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            BriarheartBurger order = new BriarheartBurger();
+
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -175,7 +190,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger order = new BriarheartBurger();
 
-            Assert.Equal(order.ToString(), "Briarheart Burger");
+            Assert.Equal("Briarheart Burger", order.ToString());
         }
     }
 }

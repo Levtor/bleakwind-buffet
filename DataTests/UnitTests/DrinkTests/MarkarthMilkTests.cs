@@ -4,7 +4,7 @@
  * Purpose: Test the MarkarthMilk.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
@@ -12,6 +12,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class MarkarthMilkTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            MarkarthMilk order = new MarkarthMilk();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            MarkarthMilk order = new MarkarthMilk();
+
+            Assert.IsAssignableFrom<Drink>(order);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
@@ -25,7 +41,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             MarkarthMilk order = new MarkarthMilk();
 
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -45,11 +61,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk order = new MarkarthMilk();
 
             order.Size = Size.Large;
-            Assert.Equal(order.Size, Size.Large);
+            Assert.Equal(Size.Large, order.Size);
             order.Size = Size.Medium;
-            Assert.Equal(order.Size, Size.Medium);
+            Assert.Equal(Size.Medium, order.Size);
             order.Size = Size.Small;
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Theory]

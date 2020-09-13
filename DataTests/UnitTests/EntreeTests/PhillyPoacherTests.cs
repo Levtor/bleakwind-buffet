@@ -4,13 +4,29 @@
  * Purpose: Test the PhillyPoacher.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            PhillyPoacher order = new PhillyPoacher();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            PhillyPoacher order = new PhillyPoacher();
+
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
         [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {
@@ -73,7 +89,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher order = new PhillyPoacher();
 
-            Assert.Equal(order.Price, 7.23);
+            Assert.Equal(7.23, order.Price);
         }
 
         [Fact]
@@ -81,7 +97,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher order = new PhillyPoacher();
 
-            Assert.Equal((decimal)order.Calories, 784);
+            Assert.Equal(784, (decimal)order.Calories);
         }
 
         [Theory]
@@ -120,7 +136,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher order = new PhillyPoacher();
 
-            Assert.Equal(order.ToString(), "Philly Poacher");
+            Assert.Equal("Philly Poacher", order.ToString());
         }
     }
 }

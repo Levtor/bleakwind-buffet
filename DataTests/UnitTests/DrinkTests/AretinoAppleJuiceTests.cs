@@ -4,14 +4,31 @@
  * Purpose: Test the AretinoAppleJuice.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.Resources;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            AretinoAppleJuice order = new AretinoAppleJuice();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            AretinoAppleJuice order = new AretinoAppleJuice();
+
+            Assert.IsAssignableFrom<Drink>(order);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
@@ -25,7 +42,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             AretinoAppleJuice order = new AretinoAppleJuice();
 
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -45,11 +62,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             AretinoAppleJuice order = new AretinoAppleJuice();
 
             order.Size = Size.Large;
-            Assert.Equal(order.Size, Size.Large);
+            Assert.Equal(Size.Large, order.Size);
             order.Size = Size.Medium;
-            Assert.Equal(order.Size, Size.Medium);
+            Assert.Equal(Size.Medium, order.Size);
             order.Size = Size.Small;
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Theory]

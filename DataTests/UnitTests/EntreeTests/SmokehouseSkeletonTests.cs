@@ -4,13 +4,29 @@
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
-    {        
+    {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            SmokehouseSkeleton order = new SmokehouseSkeleton();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            SmokehouseSkeleton order = new SmokehouseSkeleton();
+
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
         [Fact]
         public void ShouldInlcudeSausageByDefault()
         {
@@ -92,7 +108,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton order = new SmokehouseSkeleton();
 
-            Assert.Equal(order.Price, 5.62);
+            Assert.Equal(5.62, order.Price);
         }
 
         [Fact]
@@ -100,7 +116,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton order = new SmokehouseSkeleton();
 
-            Assert.Equal((decimal)order.Calories, 602);
+            Assert.Equal(602, (decimal)order.Calories);
         }
 
         [Theory]
@@ -145,7 +161,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             SmokehouseSkeleton order = new SmokehouseSkeleton();
 
-            Assert.Equal(order.ToString(), "Smokehouse Skeleton");
+            Assert.Equal("Smokehouse Skeleton", order.ToString());
         }
     }
 }

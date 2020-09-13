@@ -4,7 +4,7 @@
  * Purpose: Test the FriedMiraak.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 
@@ -13,11 +13,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class FriedMiraakTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            FriedMiraak order = new FriedMiraak();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeASide()
+        {
+            FriedMiraak order = new FriedMiraak();
+
+            Assert.IsAssignableFrom<Side>(order);
+        }
+
+        [Fact]
         public void ShouldBeSmallByDefault()
         {
             FriedMiraak order = new FriedMiraak();
 
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -26,11 +42,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             FriedMiraak order = new FriedMiraak();
 
             order.Size = Size.Large;
-            Assert.Equal(order.Size, Size.Large);
+            Assert.Equal(Size.Large, order.Size);
             order.Size = Size.Medium;
-            Assert.Equal(order.Size, Size.Medium);
+            Assert.Equal(Size.Medium, order.Size);
             order.Size = Size.Small;
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]

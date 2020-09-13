@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: GardenOrcOmelette.cs
     * Purpose: Class used to represent an order of a Garden Orc Omelette
     */
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         private Boolean broccoli = true;
         private Boolean mushrooms = true;
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The price of the order
         /// </value>
-        public double Price
+        public override double Price
         {
             get { return 4.57; }
         }
@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The calories of the order
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get { return 404; }
         }
@@ -85,7 +85,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Special insructions for the order
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

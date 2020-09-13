@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class representing an order of a Warrior Water
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink, IOrderItem
     {
         private Boolean ice = true;
         private Boolean lemon = false;
@@ -39,26 +39,15 @@ namespace BleakwindBuffet.Data.Drinks
             set { lemon = value; }
         }
 
-        private BleakwindBuffet.Data.Enums.Size size = BleakwindBuffet.Data.Enums.Size.Small;
-
-        /// <value>
-        /// The size of the order
-        /// </value>
-        public BleakwindBuffet.Data.Enums.Size Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
-
         /// <value>
         /// The price of the order
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
                 return 0;
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 0;
@@ -75,12 +64,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// The calories of the order
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
                 return 0;
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 0;
@@ -99,7 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Special insructions for the order
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             
             get
@@ -116,7 +105,7 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            switch (size)
+            switch (Size)
             {
                 case Size.Small:
                     sb.Append("Small");

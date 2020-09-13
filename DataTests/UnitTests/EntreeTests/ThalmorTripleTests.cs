@@ -4,13 +4,29 @@
  * Purpose: Test the ThalmorTriple.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class ThalmorTripleTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            ThalmorTriple order = new ThalmorTriple();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            ThalmorTriple order = new ThalmorTriple();
+
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -206,7 +222,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple order = new ThalmorTriple();
 
-            Assert.Equal(order.Price, 8.32);
+            Assert.Equal(8.32, order.Price);
         }
 
         [Fact]
@@ -214,7 +230,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple order = new ThalmorTriple();
 
-            Assert.Equal((decimal)order.Calories, 943);
+            Assert.Equal(943, (decimal)order.Calories);
         }
 
         [Theory]
@@ -297,7 +313,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThalmorTriple order = new ThalmorTriple();
 
-            Assert.Equal(order.ToString(), "Thalmor Triple");
+            Assert.Equal("Thalmor Triple", order.ToString());
         }
     }
 }

@@ -4,13 +4,29 @@
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class DoubleDraugrTests
-    {   
+    {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            DoubleDraugr order = new DoubleDraugr();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            DoubleDraugr order = new DoubleDraugr();
+
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {
@@ -168,7 +184,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             DoubleDraugr order = new DoubleDraugr();
 
-            Assert.Equal(order.Price, 7.32);
+            Assert.Equal(7.32, order.Price);
         }
 
         [Fact]
@@ -176,7 +192,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             DoubleDraugr order = new DoubleDraugr();
 
-            Assert.Equal((decimal)order.Calories, 843);
+            Assert.Equal(843, (decimal)order.Calories);
         }
 
         [Theory]

@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: PhillyPoacher.cs
     * Purpose: Class used to represent an order of a Philly Poacher
     */
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree, IOrderItem
     {
         private Boolean sirloin = true;
         private Boolean onion = true;
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The price of the order
         /// </value>
-        public double Price
+        public override double Price
         {
             get { return 7.23; }
         }
@@ -62,7 +62,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The calories of the order
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get { return 784; }
         }
@@ -72,7 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Special insructions for the order
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

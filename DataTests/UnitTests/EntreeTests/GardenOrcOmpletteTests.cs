@@ -4,13 +4,28 @@
  * Purpose: Test the GardenOrcOmelette.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class GardenOrcOmeletteTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            GardenOrcOmelette order = new GardenOrcOmelette();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            GardenOrcOmelette order = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
         [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {
@@ -92,7 +107,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette order = new GardenOrcOmelette();
 
-            Assert.Equal(order.Price, 4.57);
+            Assert.Equal(4.57, order.Price);
         }
 
         [Fact]
@@ -100,7 +115,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette order = new GardenOrcOmelette();
 
-            Assert.Equal((decimal)order.Calories, 404);
+            Assert.Equal(404, (decimal)order.Calories);
         }
 
         [Theory]
@@ -145,7 +160,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             GardenOrcOmelette order = new GardenOrcOmelette();
 
-            Assert.Equal(order.ToString(), "Garden Orc Omelette");
+            Assert.Equal("Garden Orc Omelette", order.ToString());
         }
     }
 }

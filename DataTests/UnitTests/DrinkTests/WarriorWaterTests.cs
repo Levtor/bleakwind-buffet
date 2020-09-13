@@ -6,7 +6,7 @@
 using System;
 
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,6 +14,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            WarriorWater order = new WarriorWater();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater order = new WarriorWater();
+
+            Assert.IsAssignableFrom<Drink>(order);
+        }
+
         [Fact]
         public void ShouldIncludeIceByDefault()
         {
@@ -35,7 +51,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             WarriorWater order = new WarriorWater();
 
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -55,11 +71,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             WarriorWater order = new WarriorWater();
 
             order.Size = Size.Large;
-            Assert.Equal(order.Size, Size.Large);
+            Assert.Equal(Size.Large, order.Size);
             order.Size = Size.Medium;
-            Assert.Equal(order.Size, Size.Medium);
+            Assert.Equal(Size.Medium, order.Size);
             order.Size = Size.Small;
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]

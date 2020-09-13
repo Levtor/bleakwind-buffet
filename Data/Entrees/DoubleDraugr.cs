@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: DoubleDraugr.cs
     * Purpose: Class used to represent an order of a Double Draugr
     */
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree, IOrderItem
     {
         private Boolean bun = true;
         private Boolean ketchup = true;
@@ -119,7 +119,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The price of the order
         /// </value>
-        public double Price
+        public override double Price
         {
             get { return 7.32; }
         }
@@ -127,7 +127,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The calories of the order
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get { return 843; }
         }
@@ -137,7 +137,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Special insructions for the order
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

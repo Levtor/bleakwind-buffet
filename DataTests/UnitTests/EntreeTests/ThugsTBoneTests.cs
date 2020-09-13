@@ -4,7 +4,7 @@
  * Purpose: Test the ThugsTBone.cs class in the Data library
  */
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
@@ -12,11 +12,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            ThugsTBone order = new ThugsTBone();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            ThugsTBone order = new ThugsTBone();
+
+            Assert.IsAssignableFrom<Entree>(order);
+        }
+
+        [Fact]
         public void ShouldReturnCorrectPrice()
         {
             ThugsTBone order = new ThugsTBone();
 
-            Assert.Equal(order.Price, 6.44);
+            Assert.Equal(6.44, order.Price);
         }
 
         [Fact]
@@ -24,7 +40,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone order = new ThugsTBone();
 
-            Assert.Equal((decimal)order.Calories, 982);
+            Assert.Equal(982, (decimal)order.Calories);
         }
 
         [Fact]
@@ -40,7 +56,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone order = new ThugsTBone();
 
-            Assert.Equal(order.ToString(), "Thugs T-Bone");
+            Assert.Equal("Thugs T-Bone", order.ToString());
         }
     }
 }

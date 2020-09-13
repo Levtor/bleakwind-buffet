@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class representing an order of a Sailor Soda
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda : Drink, IOrderItem
     {
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
@@ -39,26 +39,15 @@ namespace BleakwindBuffet.Data.Drinks
             get { return ice; }
             set { ice = value; }
         }
-
-        private BleakwindBuffet.Data.Enums.Size size = Size.Small;
-
-        /// <value>
-        /// The size of the order
-        /// </value>
-        public BleakwindBuffet.Data.Enums.Size Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
-
+        
         /// <value>
         /// The price of the order
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 1.42;
@@ -75,11 +64,11 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// The calories of the order
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
-                switch (size)
+                switch (Size)
                 {
                     case Size.Small:
                         return 117;
@@ -98,7 +87,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Special insructions for the order
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -114,7 +103,7 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            switch (size)
+            switch (Size)
             {
                 case Size.Small:
                     sb.Append("Small ");

@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
     * Class name: SmokehouseSkeleton.cs
     * Purpose: Class used to represent an order of a Smokehouse Skeleton
     */
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
         private Boolean sausageLink = true;
         private Boolean egg = true;
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The price of the order
         /// </value>
-        public double Price
+        public override double Price
         {
             get { return 5.62; }
         }
@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// The calories of the order
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get { return 602; }
         }
@@ -85,7 +85,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Special insructions for the order
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

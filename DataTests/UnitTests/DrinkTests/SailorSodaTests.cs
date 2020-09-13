@@ -6,7 +6,7 @@
 using System;
 
 using Xunit;
-
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 
@@ -14,6 +14,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class SailorSodaTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            SailorSoda order = new SailorSoda();
+
+            Assert.IsAssignableFrom<IOrderItem>(order);
+        }
+
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            SailorSoda order = new SailorSoda();
+
+            Assert.IsAssignableFrom<Drink>(order);
+        }
+
         [Fact]
         public void ShouldIncludeIceByDefault()
         {
@@ -27,7 +43,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda order = new SailorSoda();
 
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -35,7 +51,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda order = new SailorSoda();
 
-            Assert.Equal(order.Flavor, SodaFlavor.Cherry);
+            Assert.Equal(SodaFlavor.Cherry, order.Flavor);
         }
 
         [Fact]
@@ -55,11 +71,11 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda order = new SailorSoda();
 
             order.Size = Size.Large;
-            Assert.Equal(order.Size, Size.Large);
+            Assert.Equal(Size.Large, order.Size);
             order.Size = Size.Medium;
-            Assert.Equal(order.Size, Size.Medium);
+            Assert.Equal(Size.Medium, order.Size);
             order.Size = Size.Small;
-            Assert.Equal(order.Size, Size.Small);
+            Assert.Equal(Size.Small, order.Size);
         }
 
         [Fact]
@@ -68,17 +84,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             SailorSoda order = new SailorSoda();
 
             order.Flavor = SodaFlavor.Blackberry;
-            Assert.Equal(order.Flavor, SodaFlavor.Blackberry);
+            Assert.Equal(SodaFlavor.Blackberry, order.Flavor);
             order.Flavor = SodaFlavor.Cherry;
-            Assert.Equal(order.Flavor, SodaFlavor.Cherry);
+            Assert.Equal(SodaFlavor.Cherry, order.Flavor);
             order.Flavor = SodaFlavor.Grapefruit;
-            Assert.Equal(order.Flavor, SodaFlavor.Grapefruit);
+            Assert.Equal(SodaFlavor.Grapefruit, order.Flavor);
             order.Flavor = SodaFlavor.Lemon;
-            Assert.Equal(order.Flavor, SodaFlavor.Lemon);
+            Assert.Equal(SodaFlavor.Lemon, order.Flavor);
             order.Flavor = SodaFlavor.Peach;
-            Assert.Equal(order.Flavor, SodaFlavor.Peach);
+            Assert.Equal(SodaFlavor.Peach, order.Flavor);
             order.Flavor = SodaFlavor.Watermelon;
-            Assert.Equal(order.Flavor, SodaFlavor.Watermelon);
+            Assert.Equal(SodaFlavor.Watermelon, order.Flavor);
         }
 
         [Theory]
