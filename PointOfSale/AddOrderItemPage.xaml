@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="PointOfSale.AddOrderItemPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" FontWeight="Bold" HorizontalAlignment="Center" FontSize="15">
+            Add an Item to the Order
+        </TextBlock>
+        <TextBlock DockPanel.Dock="Top" FontWeight="Bold">
+            Entrees
+        </TextBlock>
+        <StackPanel DockPanel.Dock="Top">
+            <RadioButton Name="BriarheartBurgerButton" GroupName="itemToAdd" IsChecked="True">Briarheart Burger</RadioButton>
+            <RadioButton Name="DoubleDraugrButton" GroupName="itemToAdd">Double Draugr</RadioButton>
+            <RadioButton Name="ThalmorTripleButton" GroupName="itemToAdd">Thalmor Triple</RadioButton>
+            <RadioButton Name="GardenOrcOmeletteButton" GroupName="itemToAdd">Garden Orc Omelette</RadioButton>
+            <RadioButton Name="PhillyPoacherButton" GroupName="itemToAdd">Philly Poacher</RadioButton>
+            <RadioButton Name="SmokehouseSkeletonButton" GroupName="itemToAdd">Smokehouse Skeleton</RadioButton>
+            <RadioButton Name="ThugsTBoneButton" GroupName="itemToAdd">Thug's T-Bone</RadioButton>
+        </StackPanel>
+        <TextBlock DockPanel.Dock="Top" FontWeight="Bold">
+            Sides
+        </TextBlock>
+        <StackPanel DockPanel.Dock="Top">
+            <RadioButton Name="DragonbornWaffleFriesButton" GroupName="itemToAdd">Dragonborn Waffle Fries</RadioButton>
+            <RadioButton Name="FriedMiraakButton" GroupName="itemToAdd">Fried Miraak</RadioButton>
+            <RadioButton Name="MadOtarGritsButton" GroupName="itemToAdd">Mad Otar Grits</RadioButton>
+            <RadioButton Name="VokunSaladButton" GroupName="itemToAdd">Vokun Salad</RadioButton>
+        </StackPanel>
+        <TextBlock DockPanel.Dock="Top" FontWeight="Bold">
+            Drinks
+        </TextBlock>
+        <StackPanel DockPanel.Dock="Top">
+            <RadioButton Name="SailorSodaButton" GroupName="itemToAdd">Sailor Soda</RadioButton>
+            <RadioButton Name="AretinoAppleJuiceButton" GroupName="itemToAdd">Aretino Apple Juice</RadioButton>
+            <RadioButton Name="CandlehearthCoffeeButton" GroupName="itemToAdd">Candlehearth Coffee</RadioButton>
+            <RadioButton Name="MarkarthMilkButton" GroupName="itemToAdd">Markarth Milk</RadioButton>
+            <RadioButton Name="WarriorWaterButton" GroupName="itemToAdd">Warrior Water</RadioButton>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
