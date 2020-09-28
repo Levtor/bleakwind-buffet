@@ -36,7 +36,7 @@ namespace PointOfSale
         /// Finds and returns an instance of whichever OrderItem is currently selected by the radio buttons
         /// </summary>
         /// <returns>a new instance of the selected OrderItem</returns>
-        public IOrderItem returnSelectedOrderItem()
+        public IOrderItem ReturnSelectedOrderItem()
         {
             if ((bool)BriarheartBurgerButton.IsChecked) return new BriarheartBurger();
             if ((bool) DoubleDraugrButton.IsChecked) return new DoubleDraugr();

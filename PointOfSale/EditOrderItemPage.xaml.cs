@@ -44,7 +44,7 @@ namespace PointOfSale
         /// is to be edited by the component
         /// </summary>
         /// <param name="toEdit"></param>
-        public void setup(IOrderItem toEdit)
+        public void Setup(IOrderItem toEdit)
         {
             headerTextBlock.Text = "Edit " + toEdit.ToString() +" Order";
             caloriesTextBlock.Text = "Calories: " + toEdit.Calories;

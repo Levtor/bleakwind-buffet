@@ -40,18 +40,18 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void clearOrder(object sender, RoutedEventArgs e)
+        void ClearOrder(object sender, RoutedEventArgs e)
         {
             orderedItems = new List<IOrderItem>();
             orderItemsListView.Items.Clear();
 
-            updateNumbers();
+            UpdateNumbers();
         }
 
         /// <summary>
         /// Updates the displayed calorie and price values
         /// </summary>
-        public void updateNumbers()
+        public void UpdateNumbers()
         {
             uint totCal = 0;
             double totPrice = 0;
