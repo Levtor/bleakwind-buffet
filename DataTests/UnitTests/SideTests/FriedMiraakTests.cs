@@ -13,6 +13,69 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class FriedMiraakTests
     {
         [Fact]
+        public void SizeChangeNotifiesPropertyChanged()
+        {
+            var order = new FriedMiraak();
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void PriceChangeNotifiesPropertyChanged()
+        {
+            var order = new FriedMiraak();
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void CaloriesChangeNotifiesPropertyChanged()
+        {
+            var order = new FriedMiraak();
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             FriedMiraak order = new FriedMiraak();

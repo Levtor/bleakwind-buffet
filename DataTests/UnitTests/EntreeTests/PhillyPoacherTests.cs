@@ -12,6 +12,90 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class PhillyPoacherTests
     {
         [Fact]
+        public void SirloinChangeNotifiesPropertyChanged()
+        {
+            var order = new PhillyPoacher();
+
+            Assert.PropertyChanged(order, "Sirloin", () =>
+            {
+                order.Sirloin = false;
+            });
+
+            Assert.PropertyChanged(order, "Sirloin", () =>
+            {
+                order.Sirloin = true;
+            });
+        }
+
+        [Fact]
+        public void OnionChangeNotifiesPropertyChanged()
+        {
+            var order = new PhillyPoacher();
+
+            Assert.PropertyChanged(order, "Onion", () =>
+            {
+                order.Onion = false;
+            });
+
+            Assert.PropertyChanged(order, "Onion", () =>
+            {
+                order.Onion = true;
+            });
+        }
+
+        [Fact]
+        public void RollChangeNotifiesPropertyChanged()
+        {
+            var order = new PhillyPoacher();
+
+            Assert.PropertyChanged(order, "Roll", () =>
+            {
+                order.Roll = false;
+            });
+
+            Assert.PropertyChanged(order, "Roll", () =>
+            {
+                order.Roll = true;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new PhillyPoacher();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Sirloin = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Sirloin = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Onion = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Onion = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Roll = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Roll = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             PhillyPoacher order = new PhillyPoacher();

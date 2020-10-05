@@ -13,6 +13,101 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class MarkarthMilkTests
     {
         [Fact]
+        public void SizeChangeNotifiesPropertyChanged()
+        {
+            var order = new MarkarthMilk();
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void PriceChangeNotifiesPropertyChanged()
+        {
+            var order = new MarkarthMilk();
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void CaloriesChangeNotifiesPropertyChanged()
+        {
+            var order = new MarkarthMilk();
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void IceChangeNotifiesPropertyChanged()
+        {
+            var order = new MarkarthMilk();
+
+            Assert.PropertyChanged(order, "Ice", () =>
+            {
+                order.Ice = true;
+            });
+
+            Assert.PropertyChanged(order, "Ice", () =>
+            {
+                order.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new MarkarthMilk();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ice = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ice = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             MarkarthMilk order = new MarkarthMilk();

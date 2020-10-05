@@ -12,6 +12,116 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
         [Fact]
+        public void SausageLinkChangeNotifiesPropertyChanged()
+        {
+            var order = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(order, "SausageLink", () =>
+            {
+                order.SausageLink = false;
+            });
+
+            Assert.PropertyChanged(order, "SausageLink", () =>
+            {
+                order.SausageLink = true;
+            });
+        }
+
+        [Fact]
+        public void EggChangeNotifiesPropertyChanged()
+        {
+            var order = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(order, "Egg", () =>
+            {
+                order.Egg = false;
+            });
+
+            Assert.PropertyChanged(order, "Egg", () =>
+            {
+                order.Egg = true;
+            });
+        }
+
+        [Fact]
+        public void HashBrownsChangeNotifiesPropertyChanged()
+        {
+            var order = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(order, "HashBrowns", () =>
+            {
+                order.HashBrowns = false;
+            });
+
+            Assert.PropertyChanged(order, "HashBrowns", () =>
+            {
+                order.HashBrowns = true;
+            });
+        }
+
+        [Fact]
+        public void PancakeChangeNotifiesPropertyChanged()
+        {
+            var order = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(order, "Pancake", () =>
+            {
+                order.Pancake = false;
+            });
+
+            Assert.PropertyChanged(order, "Pancake", () =>
+            {
+                order.Pancake = true;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.SausageLink = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.SausageLink = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Egg = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Egg = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.HashBrowns = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.HashBrowns = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Pancake = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Pancake = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             SmokehouseSkeleton order = new SmokehouseSkeleton();

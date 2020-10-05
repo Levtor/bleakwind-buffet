@@ -12,6 +12,220 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class DoubleDraugrTests
     {
         [Fact]
+        public void BunChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Bun", () =>
+            {
+                order.Bun = false;
+            });
+
+            Assert.PropertyChanged(order, "Bun", () =>
+            {
+                order.Bun = true;
+            });
+        }
+
+        [Fact]
+        public void KetchupChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Ketchup", () =>
+            {
+                order.Ketchup = false;
+            });
+
+            Assert.PropertyChanged(order, "Ketchup", () =>
+            {
+                order.Ketchup = true;
+            });
+        }
+
+        [Fact]
+        public void MustardChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Mustard", () =>
+            {
+                order.Mustard = false;
+            });
+
+            Assert.PropertyChanged(order, "Mustard", () =>
+            {
+                order.Mustard = true;
+            });
+        }
+
+        [Fact]
+        public void PickleChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Pickle", () =>
+            {
+                order.Pickle = false;
+            });
+
+            Assert.PropertyChanged(order, "Pickle", () =>
+            {
+                order.Pickle = true;
+            });
+        }
+
+        [Fact]
+        public void CheeseChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Cheese", () =>
+            {
+                order.Cheese = false;
+            });
+
+            Assert.PropertyChanged(order, "Cheese", () =>
+            {
+                order.Cheese = true;
+            });
+        }
+
+        [Fact]
+        public void TomatoChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Tomato", () =>
+            {
+                order.Tomato = false;
+            });
+
+            Assert.PropertyChanged(order, "Tomato", () =>
+            {
+                order.Tomato = true;
+            });
+        }
+
+        [Fact]
+        public void LettuceChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Lettuce", () =>
+            {
+                order.Lettuce = false;
+            });
+
+            Assert.PropertyChanged(order, "Lettuce", () =>
+            {
+                order.Lettuce = true;
+            });
+        }
+
+        [Fact]
+        public void MayoChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "Mayo", () =>
+            {
+                order.Mayo = false;
+            });
+
+            Assert.PropertyChanged(order, "Mayo", () =>
+            {
+                order.Mayo = true;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new DoubleDraugr();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Bun = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Bun = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ketchup = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ketchup = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mustard = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mustard = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Pickle = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Pickle = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Cheese = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Cheese = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Tomato = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Tomato = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Lettuce = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Lettuce = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mayo = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mayo = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             DoubleDraugr order = new DoubleDraugr();

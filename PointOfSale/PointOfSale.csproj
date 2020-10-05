@@ -57,11 +57,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FlavorChanger.xaml.cs">
+      <DependentUpon>FlavorChanger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SizeChanger.xaml.cs">
+      <DependentUpon>SizeChanger.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddOrderItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditOrderItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FlavorChanger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,8 +97,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SizeChanger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewFlavor.cs" />
+    <Compile Include="NewSize.cs" />
     <Compile Include="OrderComponent.xaml.cs">
       <DependentUpon>OrderComponent.xaml</DependentUpon>
     </Compile>

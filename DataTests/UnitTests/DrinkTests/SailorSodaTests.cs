@@ -15,6 +15,137 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class SailorSodaTests
     {
         [Fact]
+        public void SizeChangeNotifiesPropertyChanged()
+        {
+            var order = new SailorSoda();
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void PriceChangeNotifiesPropertyChanged()
+        {
+            var order = new SailorSoda();
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void CaloriesChangeNotifiesPropertyChanged()
+        {
+            var order = new SailorSoda();
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void FlavorChangeNotifiesPropertyChanged()
+        {
+            var order = new SailorSoda();
+
+            Assert.PropertyChanged(order, "Flavor", () =>
+            {
+                order.Flavor = SodaFlavor.Blackberry;
+            });
+
+            Assert.PropertyChanged(order, "Flavor", () =>
+            {
+                order.Flavor = SodaFlavor.Cherry;
+            });
+
+            Assert.PropertyChanged(order, "Flavor", () =>
+            {
+                order.Flavor = SodaFlavor.Grapefruit;
+            });
+
+            Assert.PropertyChanged(order, "Flavor", () =>
+            {
+                order.Flavor = SodaFlavor.Lemon;
+            });
+
+            Assert.PropertyChanged(order, "Flavor", () =>
+            {
+                order.Flavor = SodaFlavor.Peach;
+            });
+
+            Assert.PropertyChanged(order, "Flavor", () =>
+            {
+                order.Flavor = SodaFlavor.Watermelon;
+            });
+        }
+
+        [Fact]
+        public void IceChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "Ice", () =>
+            {
+                order.Ice = false;
+            });
+
+            Assert.PropertyChanged(order, "Ice", () =>
+            {
+                order.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ice = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ice = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             SailorSoda order = new SailorSoda();

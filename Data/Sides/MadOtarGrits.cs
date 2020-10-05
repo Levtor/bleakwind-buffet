@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides
 {
@@ -16,6 +17,25 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class MadOtarGrits : Side, IOrderItem
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size = Size.Small;
+
+        /// <summary>
+        /// The size of the side
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
         /// <value>
         /// The price of the order
         /// </value>

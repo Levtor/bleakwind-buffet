@@ -10,14 +10,17 @@ using System.Collections.Generic;
 using System.Runtime;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {   
     /// <summary>
     /// A class representing an order of a Warrior Water
     /// </summary>
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         private Boolean ice = true;
         private Boolean lemon = false;
         
@@ -27,7 +30,12 @@ namespace BleakwindBuffet.Data.Drinks
         public Boolean Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -36,7 +44,29 @@ namespace BleakwindBuffet.Data.Drinks
         public Boolean Lemon
         {
             get { return lemon; }
-            set { lemon = value; }
+            set
+            {
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        private Size size = Size.Small;
+
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <value>
@@ -47,17 +77,6 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 return 0;
-                switch (Size)
-                {
-                    case Size.Small:
-                        return 0;
-                    case Size.Medium:
-                        return 0;
-                    case Size.Large:
-                        return 0;
-                    default:
-                        return 0;
-                }
             }
         }
 
@@ -69,17 +88,6 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 return 0;
-                switch (Size)
-                {
-                    case Size.Small:
-                        return 0;
-                    case Size.Medium:
-                        return 0;
-                    case Size.Large:
-                        return 0;
-                    default:
-                        return 0;
-                }
             }
         }
 

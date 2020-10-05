@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Joseph Hathaway
+* Class name: AddOrderItemPage.xaml.cs
+* Purpose: This is the component of the application that allows the user to add items to the order
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +41,7 @@ namespace PointOfSale
         /// Finds and returns an instance of whichever OrderItem is currently selected by the radio buttons
         /// </summary>
         /// <returns>a new instance of the selected OrderItem</returns>
-        public IOrderItem ReturnSelectedOrderItem()
+        public IOrderItem returnSelectedOrderItem()
         {
             if ((bool)BriarheartBurgerButton.IsChecked) return new BriarheartBurger();
             if ((bool) DoubleDraugrButton.IsChecked) return new DoubleDraugr();

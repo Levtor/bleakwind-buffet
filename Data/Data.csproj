@@ -5,4 +5,12 @@
     <RootNamespace>BleakwindBuffet.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Enums\SizesListBox.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Enums\SizesListBox.xaml" />
+  </ItemGroup>
+
 </Project>

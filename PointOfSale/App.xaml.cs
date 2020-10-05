@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Joseph Hathaway
+* Class name: App.xaml.cs
+* Purpose: Implements the program as a windows application
+*/
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

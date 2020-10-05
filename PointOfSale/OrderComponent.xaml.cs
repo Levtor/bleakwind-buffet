@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Joseph Hathaway
+* Class name: OrderComponent.xaml.cs
+* Purpose: This is the component of the application that displays the order
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,18 +45,18 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ClearOrder(object sender, RoutedEventArgs e)
+        void clearOrder(object sender, RoutedEventArgs e)
         {
             orderedItems = new List<IOrderItem>();
             orderItemsListView.Items.Clear();
 
-            UpdateNumbers();
+            updateNumbers();
         }
 
         /// <summary>
         /// Updates the displayed calorie and price values
         /// </summary>
-        public void UpdateNumbers()
+        public void updateNumbers()
         {
             uint totCal = 0;
             double totPrice = 0;

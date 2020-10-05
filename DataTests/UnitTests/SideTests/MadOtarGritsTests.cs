@@ -14,6 +14,69 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
+        public void SizeChangeNotifiesPropertyChanged()
+        {
+            var order = new MadOtarGrits();
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void PriceChangeNotifiesPropertyChanged()
+        {
+            var order = new MadOtarGrits();
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void CaloriesChangeNotifiesPropertyChanged()
+        {
+            var order = new MadOtarGrits();
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             MadOtarGrits order = new MadOtarGrits();

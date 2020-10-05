@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -11,6 +13,8 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class SmokehouseSkeleton : Entree, IOrderItem
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         private Boolean sausageLink = true;
         private Boolean egg = true;
         private Boolean hashBrowns = true;
@@ -25,6 +29,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -37,6 +43,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -49,6 +57,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -61,6 +71,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

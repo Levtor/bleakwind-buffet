@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -11,6 +13,8 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class PhillyPoacher : Entree, IOrderItem
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         private Boolean sirloin = true;
         private Boolean onion = true;
         private Boolean roll = true;
@@ -24,6 +28,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -36,6 +42,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -48,6 +56,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

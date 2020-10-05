@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -11,6 +13,8 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class ThugsTBone : Entree, IOrderItem
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         /// <value>
         /// The price of the order
         /// </value>

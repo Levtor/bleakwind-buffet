@@ -15,6 +15,127 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
+        public void SizeChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Size", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void PriceChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Price", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void CaloriesChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(order, "Calories", () =>
+            {
+                order.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void IceChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "Ice", () =>
+            {
+                order.Ice = false;
+            });
+
+            Assert.PropertyChanged(order, "Ice", () =>
+            {
+                order.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void LemonChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "Lemon", () =>
+            {
+                order.Lemon = true;
+            });
+
+            Assert.PropertyChanged(order, "Lemon", () =>
+            {
+                order.Lemon = false;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new WarriorWater();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ice = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ice = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Lemon = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Lemon = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             WarriorWater order = new WarriorWater();

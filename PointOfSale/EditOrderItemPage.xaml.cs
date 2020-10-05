@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Joseph Hathaway
+* Class name: EditOrderItemPage.xaml.cs
+* Purpose: This is the component of the application that allows the user to edit an item in the order
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,8 +48,8 @@ namespace PointOfSale
         /// Fills the instance with the appropriate controls, based on the item which 
         /// is to be edited by the component
         /// </summary>
-        /// <param name="toEdit"></param>
-        public void Setup(IOrderItem toEdit)
+        /// <param name="toEdit">the order item that is being edited</param>
+        public void setup(IOrderItem toEdit)
         {
             headerTextBlock.Text = "Edit " + toEdit.ToString() +" Order";
             caloriesTextBlock.Text = "Calories: " + toEdit.Calories;
@@ -54,401 +59,401 @@ namespace PointOfSale
             {
                 if (toEdit is BriarheartBurger)
                 {
+                    DataContext = toEdit as BriarheartBurger;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox bun = new CheckBox();
                     bun.Content = "Bun";
-                    bun.Name = "bunBox";
-                    bun.IsChecked = (toEdit as BriarheartBurger).Bun;
+                    Binding bindingBun = new Binding("Bun");
+                    bindingBun.Source = DataContext;
+                    bun.SetBinding(CheckBox.IsCheckedProperty, bindingBun);
                     optionsStackPanel.Children.Add(bun);
 
                     CheckBox ketchup = new CheckBox();
                     ketchup.Content = "Ketchup";
-                    ketchup.Name = "ketchupBox";
-                    ketchup.IsChecked = (toEdit as BriarheartBurger).Ketchup;
+                    Binding bindingKetchup = new Binding("Ketchup");
+                    bindingKetchup.Source = DataContext;
+                    ketchup.SetBinding(CheckBox.IsCheckedProperty, bindingKetchup);
                     optionsStackPanel.Children.Add(ketchup);
 
                     CheckBox mustard = new CheckBox();
                     mustard.Content = "Mustard";
-                    mustard.Name = "mustardBox";
-                    mustard.IsChecked = (toEdit as BriarheartBurger).Mustard;
+                    Binding bindingMustard = new Binding("Mustard");
+                    bindingMustard.Source = DataContext;
+                    mustard.SetBinding(CheckBox.IsCheckedProperty, bindingMustard);
                     optionsStackPanel.Children.Add(mustard);
 
                     CheckBox pickle = new CheckBox();
                     pickle.Content = "Pickle";
-                    pickle.Name = "pickleBox";
-                    pickle.IsChecked = (toEdit as BriarheartBurger).Pickle;
+                    Binding bindingPickle = new Binding("Pickle");
+                    bindingPickle.Source = DataContext;
+                    pickle.SetBinding(CheckBox.IsCheckedProperty, bindingPickle);
                     optionsStackPanel.Children.Add(pickle);
 
                     CheckBox cheese = new CheckBox();
                     cheese.Content = "Cheese";
-                    cheese.Name = "cheeseBox";
-                    cheese.IsChecked = (toEdit as BriarheartBurger).Cheese;
+                    Binding bindingCheese = new Binding("Cheese");
+                    bindingCheese.Source = DataContext;
+                    cheese.SetBinding(CheckBox.IsCheckedProperty, bindingCheese);
                     optionsStackPanel.Children.Add(cheese);
 
                 }
                 else if (toEdit is DoubleDraugr)
                 {
+                    DataContext = toEdit as DoubleDraugr;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox bun = new CheckBox();
                     bun.Content = "Bun";
-                    bun.Name = "bunBox";
-                    bun.IsChecked = (toEdit as DoubleDraugr).Bun;
+                    Binding bindingBun = new Binding("Bun");
+                    bindingBun.Source = DataContext;
+                    bun.SetBinding(CheckBox.IsCheckedProperty, bindingBun);
                     optionsStackPanel.Children.Add(bun);
 
                     CheckBox ketchup = new CheckBox();
                     ketchup.Content = "Ketchup";
-                    ketchup.Name = "ketchupBox";
-                    ketchup.IsChecked = (toEdit as DoubleDraugr).Ketchup;
+                    Binding bindingKetchup = new Binding("Ketchup");
+                    bindingKetchup.Source = DataContext;
+                    ketchup.SetBinding(CheckBox.IsCheckedProperty, bindingKetchup);
                     optionsStackPanel.Children.Add(ketchup);
 
                     CheckBox mustard = new CheckBox();
                     mustard.Content = "Mustard";
-                    mustard.Name = "mustardBox";
-                    mustard.IsChecked = (toEdit as DoubleDraugr).Mustard;
+                    Binding bindingMustard = new Binding("Mustard");
+                    bindingMustard.Source = DataContext;
+                    mustard.SetBinding(CheckBox.IsCheckedProperty, bindingMustard);
                     optionsStackPanel.Children.Add(mustard);
 
                     CheckBox pickle = new CheckBox();
                     pickle.Content = "Pickle";
-                    pickle.Name = "pickleBox";
-                    pickle.IsChecked = (toEdit as DoubleDraugr).Pickle;
+                    Binding bindingPickle = new Binding("Pickle");
+                    bindingPickle.Source = DataContext;
+                    pickle.SetBinding(CheckBox.IsCheckedProperty, bindingPickle);
                     optionsStackPanel.Children.Add(pickle);
 
                     CheckBox cheese = new CheckBox();
                     cheese.Content = "Cheese";
-                    cheese.Name = "cheeseBox";
-                    cheese.IsChecked = (toEdit as DoubleDraugr).Cheese;
+                    Binding bindingCheese = new Binding("Cheese");
+                    bindingCheese.Source = DataContext;
+                    cheese.SetBinding(CheckBox.IsCheckedProperty, bindingCheese);
                     optionsStackPanel.Children.Add(cheese);
 
                     CheckBox tomato = new CheckBox();
                     tomato.Content = "Tomato";
-                    tomato.Name = "tomatoBox";
-                    tomato.IsChecked = (toEdit as DoubleDraugr).Tomato;
+                    Binding bindingTomato = new Binding("Tomato");
+                    bindingTomato.Source = DataContext;
+                    tomato.SetBinding(CheckBox.IsCheckedProperty, bindingTomato);
                     optionsStackPanel.Children.Add(tomato);
 
                     CheckBox lettuce = new CheckBox();
                     lettuce.Content = "Lettuce";
-                    lettuce.Name = "lettuceBox";
-                    lettuce.IsChecked = (toEdit as DoubleDraugr).Lettuce;
+                    Binding bindingLettuce = new Binding("Lettuce");
+                    bindingLettuce.Source = DataContext;
+                    lettuce.SetBinding(CheckBox.IsCheckedProperty, bindingLettuce);
                     optionsStackPanel.Children.Add(lettuce);
 
                     CheckBox mayo = new CheckBox();
                     mayo.Content = "Mayo";
-                    mayo.Name = "mayoBox";
-                    mayo.IsChecked = (toEdit as DoubleDraugr).Mayo;
+                    Binding bindingMayo = new Binding("Mayo");
+                    bindingMayo.Source = DataContext;
+                    mayo.SetBinding(CheckBox.IsCheckedProperty, bindingMayo);
                     optionsStackPanel.Children.Add(mayo);
                 }
                 else if (toEdit is GardenOrcOmelette)
                 {
+                    DataContext = toEdit as GardenOrcOmelette;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox broccoli = new CheckBox();
                     broccoli.Content = "Broccoli";
-                    broccoli.Name = "broccoliBox";
-                    broccoli.IsChecked = (toEdit as GardenOrcOmelette).Broccoli;
+                    Binding bindingBroccoli = new Binding("Broccoli");
+                    bindingBroccoli.Source = DataContext;
+                    broccoli.SetBinding(CheckBox.IsCheckedProperty, bindingBroccoli);
                     optionsStackPanel.Children.Add(broccoli);
 
                     CheckBox mushrooms = new CheckBox();
                     mushrooms.Content = "Mushrooms";
-                    mushrooms.Name = "mushroomsBox";
-                    mushrooms.IsChecked = (toEdit as GardenOrcOmelette).Mushrooms;
+                    Binding bindingMushrooms = new Binding("Mushrooms");
+                    bindingMushrooms.Source = DataContext;
+                    mushrooms.SetBinding(CheckBox.IsCheckedProperty, bindingMushrooms);
                     optionsStackPanel.Children.Add(mushrooms);
 
                     CheckBox tomato = new CheckBox();
                     tomato.Content = "Tomato";
-                    tomato.Name = "tomatoBox";
-                    tomato.IsChecked = (toEdit as GardenOrcOmelette).Tomato;
+                    Binding bindingTomato = new Binding("Tomato");
+                    bindingTomato.Source = DataContext;
+                    tomato.SetBinding(CheckBox.IsCheckedProperty, bindingTomato);
                     optionsStackPanel.Children.Add(tomato);
 
                     CheckBox cheddar = new CheckBox();
                     cheddar.Content = "Cheddar";
-                    cheddar.Name = "cheddarBox";
-                    cheddar.IsChecked = (toEdit as GardenOrcOmelette).Cheddar;
+                    Binding bindingCheddar = new Binding("Cheddar");
+                    bindingCheddar.Source = DataContext;
+                    cheddar.SetBinding(CheckBox.IsCheckedProperty, bindingCheddar);
                     optionsStackPanel.Children.Add(cheddar);
                 }
                 else if (toEdit is PhillyPoacher)
                 {
+                    DataContext = toEdit as PhillyPoacher;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox sirloin = new CheckBox();
                     sirloin.Content = "Sirloin";
-                    sirloin.Name = "sirloinBox";
-                    sirloin.IsChecked = (toEdit as PhillyPoacher).Sirloin;
+                    Binding bindingSirloin = new Binding("Sirloin");
+                    bindingSirloin.Source = DataContext;
+                    sirloin.SetBinding(CheckBox.IsCheckedProperty, bindingSirloin);
                     optionsStackPanel.Children.Add(sirloin);
 
                     CheckBox onion = new CheckBox();
                     onion.Content = "Onions";
-                    onion.Name = "onionBox";
-                    onion.IsChecked = (toEdit as PhillyPoacher).Onion;
+                    Binding bindingOnion = new Binding("Onion");
+                    bindingOnion.Source = DataContext;
+                    onion.SetBinding(CheckBox.IsCheckedProperty, bindingOnion);
                     optionsStackPanel.Children.Add(onion);
 
                     CheckBox roll = new CheckBox();
                     roll.Content = "Roll";
-                    roll.Name = "rollBox";
-                    roll.IsChecked = (toEdit as PhillyPoacher).Roll;
+                    Binding bindingRoll = new Binding("Roll");
+                    bindingRoll.Source = DataContext;
+                    roll.SetBinding(CheckBox.IsCheckedProperty, bindingRoll);
                     optionsStackPanel.Children.Add(roll);
                 }
                 else if (toEdit is SmokehouseSkeleton)
                 {
+                    DataContext = toEdit as SmokehouseSkeleton;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox sausage = new CheckBox();
                     sausage.Content = "Sausage";
-                    sausage.Name = "sausageBox";
-                    sausage.IsChecked = (toEdit as SmokehouseSkeleton).SausageLink;
+                    Binding bindingSausage = new Binding("SausageLink");
+                    bindingSausage.Source = DataContext;
+                    sausage.SetBinding(CheckBox.IsCheckedProperty, bindingSausage);
                     optionsStackPanel.Children.Add(sausage);
 
                     CheckBox egg = new CheckBox();
                     egg.Content = "Eggs";
-                    egg.Name = "eggBox";
-                    egg.IsChecked = (toEdit as SmokehouseSkeleton).Egg;
+                    Binding bindingEgg = new Binding("Egg");
+                    bindingEgg.Source = DataContext;
+                    egg.SetBinding(CheckBox.IsCheckedProperty, bindingEgg);
                     optionsStackPanel.Children.Add(egg);
 
                     CheckBox hash = new CheckBox();
                     hash.Content = "Hash Browns";
-                    hash.Name = "hashBox";
-                    hash.IsChecked = (toEdit as SmokehouseSkeleton).HashBrowns;
+                    Binding bindingHash = new Binding("HashBrowns");
+                    bindingHash.Source = DataContext;
+                    hash.SetBinding(CheckBox.IsCheckedProperty, bindingHash);
                     optionsStackPanel.Children.Add(hash);
 
                     CheckBox pancake = new CheckBox();
                     pancake.Content = "Pancakes";
-                    pancake.Name = "pancakeBox";
-                    pancake.IsChecked = (toEdit as SmokehouseSkeleton).Pancake;
+                    Binding bindingPancake = new Binding("Pancake");
+                    bindingPancake.Source = DataContext;
+                    pancake.SetBinding(CheckBox.IsCheckedProperty, bindingPancake);
                     optionsStackPanel.Children.Add(pancake);
                 }
                 else if (toEdit is ThalmorTriple)
                 {
+                    DataContext = toEdit as ThalmorTriple;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox bun = new CheckBox();
                     bun.Content = "Bun";
-                    bun.Name = "bunBox";
-                    bun.IsChecked = (toEdit as ThalmorTriple).Bun;
+                    Binding bindingBun = new Binding("Bun");
+                    bindingBun.Source = DataContext;
+                    bun.SetBinding(CheckBox.IsCheckedProperty, bindingBun);
                     optionsStackPanel.Children.Add(bun);
 
                     CheckBox ketchup = new CheckBox();
                     ketchup.Content = "Ketchup";
-                    ketchup.Name = "ketchupBox";
-                    ketchup.IsChecked = (toEdit as ThalmorTriple).Ketchup;
+                    Binding bindingKetchup = new Binding("Ketchup");
+                    bindingKetchup.Source = DataContext;
+                    ketchup.SetBinding(CheckBox.IsCheckedProperty, bindingKetchup);
                     optionsStackPanel.Children.Add(ketchup);
 
                     CheckBox mustard = new CheckBox();
                     mustard.Content = "Mustard";
-                    mustard.Name = "mustardBox";
-                    mustard.IsChecked = (toEdit as ThalmorTriple).Mustard;
+                    Binding bindingMustard = new Binding("Mustard");
+                    bindingMustard.Source = DataContext;
+                    mustard.SetBinding(CheckBox.IsCheckedProperty, bindingMustard);
                     optionsStackPanel.Children.Add(mustard);
 
                     CheckBox pickle = new CheckBox();
                     pickle.Content = "Pickle";
-                    pickle.Name = "pickleBox";
-                    pickle.IsChecked = (toEdit as ThalmorTriple).Pickle;
+                    Binding bindingPickle = new Binding("Pickle");
+                    bindingPickle.Source = DataContext;
+                    pickle.SetBinding(CheckBox.IsCheckedProperty, bindingPickle);
                     optionsStackPanel.Children.Add(pickle);
 
                     CheckBox cheese = new CheckBox();
                     cheese.Content = "Cheese";
-                    cheese.Name = "cheeseBox";
-                    cheese.IsChecked = (toEdit as ThalmorTriple).Cheese;
+                    Binding bindingCheese = new Binding("Cheese");
+                    bindingCheese.Source = DataContext;
+                    cheese.SetBinding(CheckBox.IsCheckedProperty, bindingCheese);
                     optionsStackPanel.Children.Add(cheese);
 
                     CheckBox tomato = new CheckBox();
                     tomato.Content = "Tomato";
-                    tomato.Name = "tomatoBox";
-                    tomato.IsChecked = (toEdit as ThalmorTriple).Tomato;
+                    Binding bindingTomato = new Binding("Tomato");
+                    bindingTomato.Source = DataContext;
+                    tomato.SetBinding(CheckBox.IsCheckedProperty, bindingTomato);
                     optionsStackPanel.Children.Add(tomato);
 
                     CheckBox lettuce = new CheckBox();
                     lettuce.Content = "Lettuce";
-                    lettuce.Name = "lettuceBox";
-                    lettuce.IsChecked = (toEdit as ThalmorTriple).Lettuce;
+                    Binding bindingLettuce = new Binding("Lettuce");
+                    bindingLettuce.Source = DataContext;
+                    lettuce.SetBinding(CheckBox.IsCheckedProperty, bindingLettuce);
                     optionsStackPanel.Children.Add(lettuce);
 
                     CheckBox mayo = new CheckBox();
                     mayo.Content = "Mayo";
-                    mayo.Name = "mayoBox";
-                    mayo.IsChecked = (toEdit as ThalmorTriple).Mayo;
+                    Binding bindingMayo = new Binding("Mayo");
+                    bindingMayo.Source = DataContext;
+                    mayo.SetBinding(CheckBox.IsCheckedProperty, bindingMayo);
                     optionsStackPanel.Children.Add(mayo);
 
                     CheckBox bacon = new CheckBox();
                     bacon.Content = "Bacon";
-                    bacon.Name = "baconBox";
-                    bacon.IsChecked = (toEdit as ThalmorTriple).Bacon;
+                    Binding bindingBacon = new Binding("Bacon");
+                    bindingBacon.Source = DataContext;
+                    bacon.SetBinding(CheckBox.IsCheckedProperty, bindingBacon);
                     optionsStackPanel.Children.Add(bacon);
 
                     CheckBox egg = new CheckBox();
                     egg.Content = "Egg";
-                    egg.Name = "eggBox";
-                    egg.IsChecked = (toEdit as ThalmorTriple).Egg;
+                    Binding bindingEgg = new Binding("Egg");
+                    bindingEgg.Source = DataContext;
+                    egg.SetBinding(CheckBox.IsCheckedProperty, bindingEgg);
                     optionsStackPanel.Children.Add(egg);
                 }
                 else if (toEdit is ThugsTBone)
                 {
+                    DataContext = toEdit as ThugsTBone;
+
                     TextBlock tb = new TextBlock();
                     tb.Text = "No editing options available";
                     optionsStackPanel.Children.Add(tb);
                 }
             }
+
+
+
             else if (toEdit is Side)
             {
+                DataContext = toEdit as Side;
+                
                 TextBlock sizeHeader = new TextBlock();
                 sizeHeader.Text = "Size:";
                 optionsStackPanel.Children.Add(sizeHeader);
-                
-                RadioButton small = new RadioButton();
-                small.Content = "Small";
-                small.GroupName = "sizes";
-                small.Name = "smallRadioButton";
-                small.IsChecked = (toEdit as Side).Size == BleakwindBuffet.Data.Enums.Size.Small;
-                optionsStackPanel.Children.Add(small);
 
-                RadioButton medium = new RadioButton();
-                medium.Content = "Medium";
-                medium.GroupName = "sizes";
-                medium.Name = "mediumRadioButton";
-                medium.IsChecked = (toEdit as Side).Size == BleakwindBuffet.Data.Enums.Size.Medium;
-                optionsStackPanel.Children.Add(medium);
+                SizeChanger sizes = new SizeChanger();
+                sizes.DataContext = toEdit as Side;
 
-                RadioButton large = new RadioButton();
-                large.Content = "Large";
-                large.GroupName = "sizes";
-                large.Name = "largeRadioButton";
-                large.IsChecked = (toEdit as Side).Size == BleakwindBuffet.Data.Enums.Size.Large;
-                optionsStackPanel.Children.Add(large);
+                Binding bindingSize = new Binding("Size");
+                bindingSize.Source = DataContext;
+                sizes.lBox.SetBinding(ListBox.SelectedItemProperty, bindingSize);
+
+                optionsStackPanel.Children.Add(sizes);
             }
+
+
+
             else if (toEdit is Drink)
             {
-                TextBlock sizeHeader = new TextBlock();
-                sizeHeader.Text = "Size:";
-                optionsStackPanel.Children.Add(sizeHeader);
-
-                RadioButton small = new RadioButton();
-                small.Content = "Small";
-                small.GroupName = "sizes";
-                small.Name = "smallRadioButton";
-                small.IsChecked = (toEdit as Drink).Size == BleakwindBuffet.Data.Enums.Size.Small;
-                optionsStackPanel.Children.Add(small);
-
-                RadioButton medium = new RadioButton();
-                medium.Content = "Medium";
-                medium.GroupName = "sizes";
-                medium.Name = "mediumRadioButton";
-                medium.IsChecked = (toEdit as Drink).Size == BleakwindBuffet.Data.Enums.Size.Medium;
-                optionsStackPanel.Children.Add(medium);
-
-                RadioButton large = new RadioButton();
-                large.Content = "Large";
-                large.GroupName = "sizes";
-                large.Name = "largeRadioButton";
-                large.IsChecked = (toEdit as Drink).Size == BleakwindBuffet.Data.Enums.Size.Large;
-                optionsStackPanel.Children.Add(large);
-
                 if (toEdit is AretinoAppleJuice)
                 {
+                    DataContext = toEdit as AretinoAppleJuice;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox ice = new CheckBox();
                     ice.Content = "Ice";
-                    ice.Name = "iceBox";
-                    ice.IsChecked = (toEdit as AretinoAppleJuice).Ice;
+                    Binding bindingIce = new Binding("Ice");
+                    bindingIce.Source = DataContext;
+                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
                     optionsStackPanel.Children.Add(ice);
                 }
                 else if (toEdit is CandlehearthCoffee)
                 {
+                    DataContext = toEdit as CandlehearthCoffee;
+
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox ice = new CheckBox();
                     ice.Content = "Ice";
-                    ice.Name = "iceBox";
-                    ice.IsChecked = (toEdit as CandlehearthCoffee).Ice;
+                    Binding bindingIce = new Binding("Ice");
+                    bindingIce.Source = DataContext;
+                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
                     optionsStackPanel.Children.Add(ice);
 
                     CheckBox cream = new CheckBox();
                     cream.Content = "Room for Cream";
-                    cream.Name = "creamBox";
-                    cream.IsChecked = (toEdit as CandlehearthCoffee).RoomForCream;
+                    Binding bindingCream = new Binding("RoomForCream");
+                    bindingCream.Source = DataContext;
+                    cream.SetBinding(CheckBox.IsCheckedProperty, bindingCream);
                     optionsStackPanel.Children.Add(cream);
 
                     CheckBox decaf = new CheckBox();
                     decaf.Content = "Ice";
-                    decaf.Name = "iceBox";
-                    decaf.IsChecked = (toEdit as CandlehearthCoffee).Decaf;
+                    Binding bindingICe = new Binding("Ice");
+                    bindingIce.Source = DataContext;
+                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
                     optionsStackPanel.Children.Add(decaf);
                 }
                 else if (toEdit is MarkarthMilk)
                 {
+                    DataContext = toEdit as MarkarthMilk;
+
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox ice = new CheckBox();
                     ice.Content = "Ice";
-                    ice.Name = "iceBox";
-                    ice.IsChecked = (toEdit as MarkarthMilk).Ice;
+                    Binding bindingIce = new Binding("Ice");
+                    bindingIce.Source = DataContext;
+                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
                     optionsStackPanel.Children.Add(ice);
                 }
                 else if (toEdit is SailorSoda)
                 {
+                    DataContext = toEdit as SailorSoda;
+                    
                     TextBlock flavorHeader = new TextBlock();
                     flavorHeader.Text = "Flavor:";
                     optionsStackPanel.Children.Add(flavorHeader);
 
-                    RadioButton blackberry = new RadioButton();
-                    blackberry.Content = "Blackberry";
-                    blackberry.GroupName = "flavors";
-                    blackberry.Name = "blackberryRadioButton";
-                    blackberry.IsChecked = (toEdit as SailorSoda).Flavor == SodaFlavor.Blackberry;
-                    optionsStackPanel.Children.Add(blackberry);
+                    FlavorChanger flavors = new FlavorChanger();
+                    flavors.lBox.DataContext = toEdit as SailorSoda;
 
-                    RadioButton cherry = new RadioButton();
-                    cherry.Content = "Cherry";
-                    cherry.GroupName = "flavors";
-                    cherry.Name = "cherryRadioButton";
-                    cherry.IsChecked = (toEdit as SailorSoda).Flavor == SodaFlavor.Cherry;
-                    optionsStackPanel.Children.Add(cherry);
+                    Binding bindingFlavor = new Binding("Flavor");
+                    bindingFlavor.Source = DataContext;
+                    flavors.lBox.SetBinding(ListBox.SelectedItemProperty, bindingFlavor);
 
-                    RadioButton grapefruit = new RadioButton();
-                    grapefruit.Content = "Grapefruit";
-                    grapefruit.GroupName = "flavors";
-                    grapefruit.Name = "grapefruitRadioButton";
-                    grapefruit.IsChecked = (toEdit as SailorSoda).Flavor == SodaFlavor.Grapefruit;
-                    optionsStackPanel.Children.Add(grapefruit);
-
-                    RadioButton lemon = new RadioButton();
-                    lemon.Content = "Lemon";
-                    lemon.GroupName = "flavors";
-                    lemon.Name = "lemonRadioButton";
-                    lemon.IsChecked = (toEdit as SailorSoda).Flavor == SodaFlavor.Lemon;
-                    optionsStackPanel.Children.Add(lemon);
-
-                    RadioButton peach = new RadioButton();
-                    peach.Content = "Peach";
-                    peach.GroupName = "flavors";
-                    peach.Name = "peachRadioButton";
-                    peach.IsChecked = (toEdit as SailorSoda).Flavor == SodaFlavor.Peach;
-                    optionsStackPanel.Children.Add(peach);
-
-                    RadioButton watermelon = new RadioButton();
-                    watermelon.Content = "Watermelon";
-                    watermelon.GroupName = "flavors";
-                    watermelon.Name = "watermelonRadioButton";
-                    watermelon.IsChecked = (toEdit as SailorSoda).Flavor == SodaFlavor.Watermelon;
-                    optionsStackPanel.Children.Add(watermelon);
+                    optionsStackPanel.Children.Add(flavors);
 
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
@@ -462,22 +467,39 @@ namespace PointOfSale
                 }
                 else if (toEdit is WarriorWater)
                 {
+                    DataContext = toEdit as WarriorWater;
+                    
                     TextBlock optionsHeader = new TextBlock();
                     optionsHeader.Text = "Options:";
                     optionsStackPanel.Children.Add(optionsHeader);
 
                     CheckBox ice = new CheckBox();
                     ice.Content = "Ice";
-                    ice.Name = "iceBox";
-                    ice.IsChecked = (toEdit as WarriorWater).Ice;
+                    Binding bindingIce = new Binding("Ice");
+                    bindingIce.Source = DataContext;
+                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
                     optionsStackPanel.Children.Add(ice);
 
                     CheckBox lemon = new CheckBox();
                     lemon.Content = "Lemon";
-                    lemon.Name = "lemonBox";
-                    lemon.IsChecked = (toEdit as WarriorWater).Lemon;
+                    Binding bindingLemon = new Binding("Lemon");
+                    bindingLemon.Source = DataContext;
+                    lemon.SetBinding(CheckBox.IsCheckedProperty, bindingLemon);
                     optionsStackPanel.Children.Add(lemon);
                 }
+
+                TextBlock sizeHeader = new TextBlock();
+                sizeHeader.Text = "Size:";
+                optionsStackPanel.Children.Add(sizeHeader);
+
+                SizeChanger sizes = new SizeChanger();
+                sizes.DataContext = toEdit as Drink;
+
+                Binding bindingSize = new Binding("Size");
+                bindingSize.Source = DataContext;
+                sizes.lBox.SetBinding(ListBox.SelectedItemProperty, bindingSize);
+
+                optionsStackPanel.Children.Add(sizes);
             }
         }
     }

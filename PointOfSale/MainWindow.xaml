@@ -15,21 +15,21 @@
             <ColumnDefinition Width="27*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Border Grid.ColumnSpan="3" Name="orderMakerBorder" DockPanel.Dock="Top"/>
         <local:OrderComponent Grid.Column="3" x:Name="orderComp"/>
-        <Button Grid.Row="1" Grid.Column="3" Name="editButton" Click="BeginEditing" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Grid.Row="1" Grid.Column="3" Name="editButton" Click="beginEditing" FontSize="20">
                 Edit Selected Item
         </Button>
-        <Button Grid.Row="1" Grid.Column="2" Name="doneButton" Click="FinishEditing" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Grid.Row="1" Grid.Column="2" Name="doneButton" Click="finishEditing" FontSize="20">
             Done Editing
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Name="addButton" Click="AddItemToOrder" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Grid.Row="1" Grid.Column="1" Name="addButton" Click="addItemToOrder" FontSize="20">
             Add Item
         </Button>
-        <Button Grid.Row="1" Grid.Column="0" Name="deleteButton" Click="RemoveOrderItem" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Grid.Row="1" Grid.Column="0" Name="deleteButton" Click="removeOrderItem" FontSize="20">
             Delete Item
         </Button>
     </Grid>

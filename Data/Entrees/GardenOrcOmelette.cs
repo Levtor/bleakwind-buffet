@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -11,6 +13,8 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class GardenOrcOmelette : Entree, IOrderItem
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         private Boolean broccoli = true;
         private Boolean mushrooms = true;
         private Boolean tomato = true;
@@ -25,6 +29,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -37,6 +43,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -49,6 +57,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -61,6 +71,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

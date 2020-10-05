@@ -13,6 +13,142 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class BriarheartBurgerTests
     {
         [Fact]
+        public void BunChangeNotifiesPropertyChanged()
+        {
+            var order = new BriarheartBurger();
+
+            Assert.PropertyChanged(order, "Bun", () =>
+            {
+                order.Bun = false;
+            });
+
+            Assert.PropertyChanged(order, "Bun", () =>
+            {
+                order.Bun = true;
+            });
+        }
+
+        [Fact]
+        public void KetchupChangeNotifiesPropertyChanged()
+        {
+            var order = new BriarheartBurger();
+
+            Assert.PropertyChanged(order, "Ketchup", () =>
+            {
+                order.Ketchup = false;
+            });
+
+            Assert.PropertyChanged(order, "Ketchup", () =>
+            {
+                order.Ketchup = true;
+            });
+        }
+
+        [Fact]
+        public void MustardChangeNotifiesPropertyChanged()
+        {
+            var order = new BriarheartBurger();
+
+            Assert.PropertyChanged(order, "Mustard", () =>
+            {
+                order.Mustard = false;
+            });
+
+            Assert.PropertyChanged(order, "Mustard", () =>
+            {
+                order.Mustard = true;
+            });
+        }
+
+        [Fact]
+        public void PickleChangeNotifiesPropertyChanged()
+        {
+            var order = new BriarheartBurger();
+
+            Assert.PropertyChanged(order, "Pickle", () =>
+            {
+                order.Pickle = false;
+            });
+
+            Assert.PropertyChanged(order, "Pickle", () =>
+            {
+                order.Pickle = true;
+            });
+        }
+
+        [Fact]
+        public void CheeseChangeNotifiesPropertyChanged()
+        {
+            var order = new BriarheartBurger();
+
+            Assert.PropertyChanged(order, "Cheese", () =>
+            {
+                order.Cheese = false;
+            });
+
+            Assert.PropertyChanged(order, "Cheese", () =>
+            {
+                order.Cheese = true;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new BriarheartBurger();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Bun = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Bun = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ketchup = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Ketchup = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mustard = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mustard = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Pickle = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Pickle = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Cheese = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Cheese = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             BriarheartBurger order = new BriarheartBurger();

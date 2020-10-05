@@ -12,6 +12,116 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void BroccoliChangeNotifiesPropertyChanged()
+        {
+            var order = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(order, "Broccoli", () =>
+            {
+                order.Broccoli = false;
+            });
+
+            Assert.PropertyChanged(order, "Broccoli", () =>
+            {
+                order.Broccoli = true;
+            });
+        }
+
+        [Fact]
+        public void MushroomsChangeNotifiesPropertyChanged()
+        {
+            var order = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(order, "Mushrooms", () =>
+            {
+                order.Mushrooms = false;
+            });
+
+            Assert.PropertyChanged(order, "Mushrooms", () =>
+            {
+                order.Mushrooms = true;
+            });
+        }
+
+        [Fact]
+        public void TomatoChangeNotifiesPropertyChanged()
+        {
+            var order = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(order, "Tomato", () =>
+            {
+                order.Tomato = false;
+            });
+
+            Assert.PropertyChanged(order, "Tomato", () =>
+            {
+                order.Tomato = true;
+            });
+        }
+
+        [Fact]
+        public void CheddarChangeNotifiesPropertyChanged()
+        {
+            var order = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(order, "Cheddar", () =>
+            {
+                order.Cheddar = false;
+            });
+
+            Assert.PropertyChanged(order, "Cheddar", () =>
+            {
+                order.Cheddar = true;
+            });
+        }
+
+        [Fact]
+        public void SpecialInstructionsChangeNotifiesPropertyChanged()
+        {
+            var order = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Broccoli = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Broccoli = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mushrooms = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Mushrooms = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Tomato = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Tomato = true;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Cheddar = false;
+            });
+
+            Assert.PropertyChanged(order, "SpecialInstructions", () =>
+            {
+                order.Cheddar = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             GardenOrcOmelette order = new GardenOrcOmelette();

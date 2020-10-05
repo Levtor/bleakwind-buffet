@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -11,6 +13,8 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class ThalmorTriple : Entree, IOrderItem
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        
         private Boolean bun = true;
         private Boolean ketchup = true;
         private Boolean mustard = true;
@@ -31,6 +35,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -43,6 +49,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -55,6 +63,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -67,6 +77,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -79,6 +91,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -91,6 +105,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -103,6 +119,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 lettuce = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -115,6 +133,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 mayo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -127,6 +147,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 bacon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -139,6 +161,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
