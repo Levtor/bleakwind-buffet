@@ -19,8 +19,6 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class SailorSoda : Drink
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-        
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
         /// <value>
@@ -32,7 +30,7 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 flavor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChange(new PropertyChangedEventArgs("Flavor"));
             }
         }
         
@@ -47,8 +45,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChange(new PropertyChangedEventArgs("Ice"));
+                PropertyChange(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -63,9 +61,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChange(new PropertyChangedEventArgs("Size"));
+                PropertyChange(new PropertyChangedEventArgs("Price"));
+                PropertyChange(new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -120,6 +118,7 @@ namespace BleakwindBuffet.Data.Drinks
         {
             get
             {
+                specs.Clear();
                 if (!ice) specs.Add("Hold ice");
                 return specs;
             }

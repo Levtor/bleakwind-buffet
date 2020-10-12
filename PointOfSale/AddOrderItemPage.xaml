@@ -11,6 +11,10 @@
             Add an Item to the Order
         </TextBlock>
         <TextBlock DockPanel.Dock="Top" FontWeight="Bold">
+            Combo
+        </TextBlock>
+        <RadioButton DockPanel.Dock="Top" Name="ComboButton" GroupName="itemToAdd" IsChecked="False">Combo</RadioButton>
+        <TextBlock DockPanel.Dock="Top" FontWeight="Bold">
             Entrees
         </TextBlock>
         <StackPanel DockPanel.Dock="Top">

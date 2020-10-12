@@ -28,47 +28,31 @@ namespace PointOfSale
     public partial class OrderComponent : UserControl
     {
         /// <summary>
-        /// List of the OrderItems represented in the ListView of the OrderComponent
-        /// </summary>
-        public List<IOrderItem> orderedItems = new List<IOrderItem>();
-
-        /// <summary>
         /// Creates the OrderComponent
         /// </summary>
         public OrderComponent()
         {
             InitializeComponent();
-        }
 
-        /// <summary>
-        /// Clears the list of OrderItems
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void clearOrder(object sender, RoutedEventArgs e)
-        {
-            orderedItems = new List<IOrderItem>();
-            orderItemsListView.Items.Clear();
+            DataContext = new Order();
 
-            updateNumbers();
-        }
+            orderNumTextBlock.Text = "Order# " + (DataContext as Order).Number;
 
-        /// <summary>
-        /// Updates the displayed calorie and price values
-        /// </summary>
-        public void updateNumbers()
-        {
-            uint totCal = 0;
-            double totPrice = 0;
-            
-            foreach (IOrderItem i in orderedItems)
-            {
-                totCal += i.Calories;
-                totPrice += i.Price;
-            }
-            
-            caloriesTextBlock.Text = "Total Calories: " + totCal;
-            priceTextBlock.Text = "Total Price: $" + (totPrice - totPrice % 0.01);
+            Binding bindingCalories = new Binding("Calories");
+            bindingCalories.Source = DataContext;
+            caloriesTextBlock.SetBinding(TextBlock.TextProperty, bindingCalories);
+
+            Binding bindingTotal = new Binding("Total");
+            bindingTotal.Source = DataContext;
+            totalTextBlock.SetBinding(TextBlock.TextProperty, bindingTotal);
+
+            Binding bindingSub = new Binding("SubTotal");
+            bindingSub.Source = DataContext;
+            subtotalTextBlock.SetBinding(TextBlock.TextProperty, bindingSub);
+
+            Binding bindingTax = new Binding("Tax");
+            bindingTax.Source = DataContext;
+            taxTextBlock.SetBinding(TextBlock.TextProperty, bindingTax);
         }
     }
 }

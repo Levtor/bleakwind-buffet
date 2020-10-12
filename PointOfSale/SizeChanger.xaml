@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="80">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="sizesProvider" MethodName="GetValues" ObjectType="{x:Type system:Enum}" >
             <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="local:NewSize"/>
+                <x:Type TypeName="enums:Size"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </UserControl.Resources>

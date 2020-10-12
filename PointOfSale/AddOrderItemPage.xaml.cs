@@ -43,8 +43,9 @@ namespace PointOfSale
         /// <returns>a new instance of the selected OrderItem</returns>
         public IOrderItem returnSelectedOrderItem()
         {
+            if ((bool)ComboButton.IsChecked) throw new NotImplementedException();
             if ((bool)BriarheartBurgerButton.IsChecked) return new BriarheartBurger();
-            if ((bool) DoubleDraugrButton.IsChecked) return new DoubleDraugr();
+            if ((bool)DoubleDraugrButton.IsChecked) return new DoubleDraugr();
             if ((bool)GardenOrcOmeletteButton.IsChecked) return new GardenOrcOmelette();
             if ((bool)PhillyPoacherButton.IsChecked) return new PhillyPoacher();
             if ((bool)SmokehouseSkeletonButton.IsChecked) return new SmokehouseSkeleton();

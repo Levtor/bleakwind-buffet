@@ -39,6 +39,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             openNewAddPage();
+            orderCompBorder.Child = new OrderComponent();
         }
 
         /// <summary>
@@ -50,19 +51,15 @@ namespace PointOfSale
         void addItemToOrder(object sender, RoutedEventArgs e)
         {
             AddOrderItemPage addPage = orderMakerBorder.Child as AddOrderItemPage;
+            OrderComponent o = (orderCompBorder.Child as OrderComponent);
+            IOrderItem newItem = addPage.returnSelectedOrderItem();
+            var toAddToOrderComponent = new OrderCompItem(newItem);
 
-            TextBlock toAddToOrderComponent = new TextBlock();
-            toAddToOrderComponent.HorizontalAlignment = HorizontalAlignment.Center;
-            toAddToOrderComponent.Text = addPage.returnSelectedOrderItem().ToString();
+            o.orderItemsListView.Items.Add(toAddToOrderComponent);
+            (o.DataContext as Order).Add(newItem);
+            o.orderItemsListView.SelectedItem = toAddToOrderComponent;
 
-            orderComp.orderItemsListView.Items.Add(toAddToOrderComponent);
-            orderComp.orderedItems.Add(addPage.returnSelectedOrderItem());
-            int x = orderComp.orderItemsListView.Items.Count - 1;
-            orderComp.orderItemsListView.SelectedItem = orderComp.orderItemsListView.Items[x];
-
-            orderComp.updateNumbers();
-
-            openNewEditPage(x);
+            openNewEditPage(newItem);
         }
 
         /// <summary>
@@ -73,11 +70,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         void removeOrderItem(object sender, RoutedEventArgs e)
         {
-            int i = (orderMakerBorder.Child as EditOrderItemPage).index;
-            orderComp.orderItemsListView.Items.RemoveAt(i);
-            orderComp.orderedItems.RemoveAt(i);
+            OrderComponent o = orderCompBorder.Child as OrderComponent;
+            EditOrderItemPage editPage = orderMakerBorder.Child as EditOrderItemPage;
 
-            orderComp.updateNumbers();
+            int i = (o.DataContext as Order).list.IndexOf(editPage.DataContext as IOrderItem);
+
+            o.orderItemsListView.Items.RemoveAt(i);
+            (o.DataContext as Order).list.RemoveAt(i);
 
             openNewAddPage();
         }
@@ -90,7 +89,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         void beginEditing(object sender, RoutedEventArgs e)
         {
-            openNewEditPage(orderComp.orderItemsListView.Items.IndexOf(orderComp.orderItemsListView.SelectedItem));
+            var o = orderCompBorder.Child as OrderComponent;
+            openNewEditPage((o.orderItemsListView.SelectedItem as OrderCompItem).DataContext as IOrderItem);
         }
 
         /// <summary>
@@ -98,29 +98,31 @@ namespace PointOfSale
         /// brings up a page allowing the user to add an item to the order
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="eck"></param>
-        void finishEditing(object sender, RoutedEventArgs eck)
+        /// <param name="e"></param>
+        void finishEditing(object sender, RoutedEventArgs e)
         {
-            var editPage = (orderMakerBorder.Child as EditOrderItemPage);
-            IOrderItem toEdit = orderComp.orderedItems[editPage.index];
-            
-            (orderComp.orderItemsListView.Items[editPage.index] as TextBlock).Text = toEdit.ToString();
-            orderComp.updateNumbers();
-
             openNewAddPage();
+        }
+
+        /// <summary>
+        /// Clears the current order and starts a new one
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void clearOrder(object sender, RoutedEventArgs e)
+        {
+            openNewAddPage();
+
+            orderCompBorder.Child = new OrderComponent();
         }
 
         /// <summary>
         /// Opens a page allowing the user to edit an item in the order
         /// </summary>
         /// <param name="indexOfItemToEdit"></param>
-        void openNewEditPage(int indexOfItemToEdit)
+        void openNewEditPage(IOrderItem toEdit)
         {
-            orderMakerBorder.Child = new EditOrderItemPage();
-            EditOrderItemPage editPage = orderMakerBorder.Child as EditOrderItemPage;
-            editPage.index = indexOfItemToEdit;
-
-            (orderMakerBorder.Child as EditOrderItemPage).setup(orderComp.orderedItems[indexOfItemToEdit]);
+            orderMakerBorder.Child = new EditOrderItemPage(toEdit);
 
             addButton.Visibility = Visibility.Collapsed;
             editButton.Visibility = Visibility.Collapsed;
@@ -134,6 +136,7 @@ namespace PointOfSale
         void openNewAddPage()
         {
             orderMakerBorder.Child = new AddOrderItemPage();
+
             addButton.Visibility = Visibility.Visible;
             editButton.Visibility = Visibility.Visible;
             deleteButton.Visibility = Visibility.Collapsed;

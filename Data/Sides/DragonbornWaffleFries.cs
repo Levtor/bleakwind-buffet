@@ -17,8 +17,6 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class DragonbornWaffleFries : Side, IOrderItem
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-
         private Size size = Size.Small;
 
         /// <summary>
@@ -30,9 +28,9 @@ namespace BleakwindBuffet.Data.Sides
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChange(new PropertyChangedEventArgs("Size"));
+                PropertyChange(new PropertyChangedEventArgs("Price"));
+                PropertyChange(new PropertyChangedEventArgs("Calories"));
             }
         }
 

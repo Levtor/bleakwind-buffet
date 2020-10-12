@@ -8,11 +8,20 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using System.Security.Cryptography;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var order = new MadOtarGrits();
+
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+        
         [Fact]
         public void SizeChangeNotifiesPropertyChanged()
         {

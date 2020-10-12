@@ -19,8 +19,6 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater : Drink
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-        
         private Boolean ice = true;
         private Boolean lemon = false;
         
@@ -33,8 +31,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 ice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChange(new PropertyChangedEventArgs("Ice"));
+                PropertyChange(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -47,8 +45,8 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 lemon = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChange(new PropertyChangedEventArgs("Lemon"));
+                PropertyChange(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -63,9 +61,9 @@ namespace BleakwindBuffet.Data.Drinks
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChange(new PropertyChangedEventArgs("Size"));
+                PropertyChange(new PropertyChangedEventArgs("Price"));
+                PropertyChange(new PropertyChangedEventArgs("Calories"));
             }
         }
 
@@ -101,6 +99,7 @@ namespace BleakwindBuffet.Data.Drinks
             
             get
             {
+                specs.Clear();
                 if (!ice) specs.Add("Hold ice");
                 if (lemon) specs.Add("Add lemon");
                 return specs;

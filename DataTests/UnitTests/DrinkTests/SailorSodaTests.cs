@@ -9,11 +9,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class SailorSodaTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var order = new SailorSoda();
+
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+
         [Fact]
         public void SizeChangeNotifiesPropertyChanged()
         {

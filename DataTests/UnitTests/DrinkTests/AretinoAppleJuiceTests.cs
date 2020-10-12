@@ -7,6 +7,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 using System.Resources;
 using System.Runtime.Intrinsics.X86;
 
@@ -14,6 +15,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var order = new AretinoAppleJuice();
+
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+        
         [Fact]
         public void SizeChangeNotifiesPropertyChanged()
         {

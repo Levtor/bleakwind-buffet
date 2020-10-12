@@ -7,11 +7,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class FriedMiraakTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var order = new FriedMiraak();
+
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+
         [Fact]
         public void SizeChangeNotifiesPropertyChanged()
         {

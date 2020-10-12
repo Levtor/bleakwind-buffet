@@ -7,11 +7,20 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class MarkarthMilkTests
     {
+        [Fact]
+        public void ImplementsINotifyPropertyChanged()
+        {
+            var order = new MarkarthMilk();
+
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(order);
+        }
+
         [Fact]
         public void SizeChangeNotifiesPropertyChanged()
         {

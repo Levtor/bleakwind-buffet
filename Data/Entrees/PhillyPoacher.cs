@@ -13,8 +13,6 @@ namespace BleakwindBuffet.Data.Entrees
     */
     public class PhillyPoacher : Entree, IOrderItem
     {
-        public override event PropertyChangedEventHandler PropertyChanged;
-        
         private Boolean sirloin = true;
         private Boolean onion = true;
         private Boolean roll = true;
@@ -28,8 +26,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 sirloin = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChange(new PropertyChangedEventArgs("Sirloin"));
+                PropertyChange(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -42,8 +40,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 onion = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChange(new PropertyChangedEventArgs("Onion"));
+                PropertyChange(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -56,8 +54,8 @@ namespace BleakwindBuffet.Data.Entrees
             set
             {
                 roll = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChange(new PropertyChangedEventArgs("Roll"));
+                PropertyChange(new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 
@@ -86,6 +84,7 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get
             {
+                specs.Clear();
                 if (!sirloin) specs.Add("Hold sirloin");
                 if (!onion) specs.Add("Hold onions");
                 if (!roll) specs.Add("Hold roll");

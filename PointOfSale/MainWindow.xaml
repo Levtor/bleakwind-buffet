@@ -9,27 +9,31 @@
         Title="MainWindow" Height="450" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="17*"/>
-            <ColumnDefinition Width="17*"/>
-            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="27*"/>
             <ColumnDefinition Width="27*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Border Grid.ColumnSpan="3" Name="orderMakerBorder" DockPanel.Dock="Top"/>
-        <local:OrderComponent Grid.Column="3" x:Name="orderComp"/>
-        <Button Grid.Row="1" Grid.Column="3" Name="editButton" Click="beginEditing" FontSize="20">
-                Edit Selected Item
+        <Border Grid.Column="3" Grid.ColumnSpan="2" Name="orderCompBorder"/>
+        <Button Grid.Row="1" Grid.Column="4" Name="clearButton" Click="clearOrder" FontSize="18">
+            Clear Order
         </Button>
-        <Button Grid.Row="1" Grid.Column="2" Name="doneButton" Click="finishEditing" FontSize="20">
+        <Button Grid.Row="1" Grid.Column="3" Name="editButton" Click="beginEditing" FontSize="18">
+                Edit Item
+        </Button>
+        <Button Grid.Row="1" Grid.Column="2" Name="doneButton" Click="finishEditing" FontSize="18">
             Done Editing
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Name="addButton" Click="addItemToOrder" FontSize="20">
+        <Button Grid.Row="1" Grid.Column="1" Name="addButton" Click="addItemToOrder" FontSize="18">
             Add Item
         </Button>
-        <Button Grid.Row="1" Grid.Column="0" Name="deleteButton" Click="removeOrderItem" FontSize="20">
+        <Button Grid.Row="1" Grid.Column="0" Name="deleteButton" Click="removeOrderItem" FontSize="18">
             Delete Item
         </Button>
     </Grid>

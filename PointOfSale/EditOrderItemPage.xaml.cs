@@ -31,26 +31,13 @@ namespace PointOfSale
     public partial class EditOrderItemPage : UserControl
     {
         /// <summary>
-        /// Holds the index which refers to the location in the listview of the OrderComponent where
-        /// the OrderItem being edited is located
+        /// Creates the page to edit the order item
         /// </summary>
-        public int index;
-        
-        /// <summary>
-        /// Creates the EditOrderItemPage
-        /// </summary>
-        public EditOrderItemPage()
+        /// <param name="toEdit">the order item to be edited</param>
+        public EditOrderItemPage(IOrderItem toEdit)
         {
             InitializeComponent();
-        }
 
-        /// <summary>
-        /// Fills the instance with the appropriate controls, based on the item which 
-        /// is to be edited by the component
-        /// </summary>
-        /// <param name="toEdit">the order item that is being edited</param>
-        public void setup(IOrderItem toEdit)
-        {
             headerTextBlock.Text = "Edit " + toEdit.ToString() +" Order";
             caloriesTextBlock.Text = "Calories: " + toEdit.Calories;
             priceTextBlock.Text = "Price: " + toEdit.Price;
@@ -417,10 +404,10 @@ namespace PointOfSale
                     optionsStackPanel.Children.Add(cream);
 
                     CheckBox decaf = new CheckBox();
-                    decaf.Content = "Ice";
-                    Binding bindingICe = new Binding("Ice");
-                    bindingIce.Source = DataContext;
-                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
+                    decaf.Content = "Decaf";
+                    Binding bindingDecaf = new Binding("Decaf");
+                    bindingDecaf.Source = DataContext;
+                    decaf.SetBinding(CheckBox.IsCheckedProperty, bindingDecaf);
                     optionsStackPanel.Children.Add(decaf);
                 }
                 else if (toEdit is MarkarthMilk)
@@ -441,7 +428,18 @@ namespace PointOfSale
                 else if (toEdit is SailorSoda)
                 {
                     DataContext = toEdit as SailorSoda;
-                    
+
+                    TextBlock optionsHeader = new TextBlock();
+                    optionsHeader.Text = "Options:";
+                    optionsStackPanel.Children.Add(optionsHeader);
+
+                    CheckBox ice = new CheckBox();
+                    ice.Content = "Ice";
+                    Binding bindingIce = new Binding("Ice");
+                    bindingIce.Source = DataContext;
+                    ice.SetBinding(CheckBox.IsCheckedProperty, bindingIce);
+                    optionsStackPanel.Children.Add(ice);
+
                     TextBlock flavorHeader = new TextBlock();
                     flavorHeader.Text = "Flavor:";
                     optionsStackPanel.Children.Add(flavorHeader);
@@ -454,16 +452,6 @@ namespace PointOfSale
                     flavors.lBox.SetBinding(ListBox.SelectedItemProperty, bindingFlavor);
 
                     optionsStackPanel.Children.Add(flavors);
-
-                    TextBlock optionsHeader = new TextBlock();
-                    optionsHeader.Text = "Options:";
-                    optionsStackPanel.Children.Add(optionsHeader);
-
-                    CheckBox ice = new CheckBox();
-                    ice.Content = "Ice";
-                    ice.Name = "iceBox";
-                    ice.IsChecked = (toEdit as SailorSoda).Ice;
-                    optionsStackPanel.Children.Add(ice);
                 }
                 else if (toEdit is WarriorWater)
                 {
