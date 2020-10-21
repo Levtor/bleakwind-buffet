@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RoundRegister, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RoundRegister.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -57,16 +61,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Cash.xaml.cs">
+      <DependentUpon>Cash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CashOrCredit.xaml.cs">
+      <DependentUpon>CashOrCredit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditComboPage.xaml.cs">
+      <DependentUpon>EditComboPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FlavorChanger.xaml.cs">
       <DependentUpon>FlavorChanger.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrderCompItem.xaml.cs">
       <DependentUpon>OrderCompItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaymentIn.xaml.cs">
+      <DependentUpon>PaymentIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SizeChanger.xaml.cs">
       <DependentUpon>SizeChanger.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
     <Page Include="AddOrderItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CashOrCredit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditComboPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrderComponent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaymentIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +176,9 @@
       <Project>{b66b462c-da57-4db7-9053-debd3953f479}</Project>
       <Name>Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RoundRegister.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

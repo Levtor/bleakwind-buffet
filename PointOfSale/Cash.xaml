@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="PointOfSale.Cash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                Bills
+        </TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                Paid:
+        </TextBlock>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                Change:
+        </TextBlock>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                Coins
+        </TextBlock>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                Paid:
+        </TextBlock>
+        <TextBlock Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                Change:
+        </TextBlock>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $100
+        </TextBlock>
+        <local:PaymentIn x:Name="b100InBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b100Box" Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $50
+        </TextBlock>
+        <local:PaymentIn x:Name="b50InBox" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b50Box" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $20
+        </TextBlock>
+        <local:PaymentIn x:Name="b20InBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b20Box" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $10
+        </TextBlock>
+        <local:PaymentIn x:Name="b10InBox" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b10Box" Grid.Row="4" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $5
+        </TextBlock>
+        <local:PaymentIn x:Name="b5InBox" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b5Box" Grid.Row="5" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $2
+        </TextBlock>
+        <local:PaymentIn x:Name="b2InBox" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b2Box" Grid.Row="6" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $1
+        </TextBlock>
+        <local:PaymentIn x:Name="b1InBox" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="b1Box" Grid.Row="7" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+
+        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $1
+        </TextBlock>
+        <local:PaymentIn x:Name="c100InBox" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="c100Box" Grid.Row="1" Grid.Column="5"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $.50
+        </TextBlock>
+        <local:PaymentIn x:Name="c50InBox" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="c50Box" Grid.Row="2" Grid.Column="5"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $.25
+        </TextBlock>
+        <local:PaymentIn x:Name="c25InBox" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="c25Box" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $.10
+        </TextBlock>
+        <local:PaymentIn x:Name="c10InBox" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="c10Box" Grid.Row="4" Grid.Column="5"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $.05
+        </TextBlock>
+        <local:PaymentIn x:Name="c5InBox" Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="c5Box" Grid.Row="5" Grid.Column="5"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                $.01
+        </TextBlock>
+        <local:PaymentIn x:Name="c1InBox" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" FontSize="20"/>
+        <TextBlock x:Name="c1Box" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">
+                0
+        </TextBlock>
+
+        <TextBlock Grid.Row="8"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18">
+                Sale Price:
+        </TextBlock>
+        <TextBlock x:Name="PriceBox" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                $0.00
+        </TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">
+                Amount Due:
+        </TextBlock>
+        <TextBlock x:Name="DebtBox" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                $0.00
+        </TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18">
+                Change:
+        </TextBlock>
+        <TextBlock x:Name="ChangeBox" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">
+                $0.00
+        </TextBlock>
+        <Button Click="back" Grid.Row="9" Grid.ColumnSpan="2" FontSize="30">
+            Go Back
+        </Button>
+        <Button x:Name="finButton" IsEnabled="False" Click="finalize" Grid.Column="4" Grid.Row="9" Grid.ColumnSpan="2" FontSize="30">
+            Finalize Sale
+        </Button>
+    </Grid>
+</UserControl>

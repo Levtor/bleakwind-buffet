@@ -24,6 +24,7 @@ using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel.Design;
 
 namespace PointOfSale
 {
@@ -53,13 +54,23 @@ namespace PointOfSale
             AddOrderItemPage addPage = orderMakerBorder.Child as AddOrderItemPage;
             OrderComponent o = (orderCompBorder.Child as OrderComponent);
             IOrderItem newItem = addPage.returnSelectedOrderItem();
+
+
             var toAddToOrderComponent = new OrderCompItem(newItem);
 
             o.orderItemsListView.Items.Add(toAddToOrderComponent);
             (o.DataContext as Order).Add(newItem);
             o.orderItemsListView.SelectedItem = toAddToOrderComponent;
 
-            openNewEditPage(newItem);
+            if (newItem is Combo)
+            {
+                openComboEditPage(newItem);
+            }
+            else
+            {
+                openNewEditPage(newItem);
+            }
+
         }
 
         /// <summary>
@@ -71,9 +82,8 @@ namespace PointOfSale
         void removeOrderItem(object sender, RoutedEventArgs e)
         {
             OrderComponent o = orderCompBorder.Child as OrderComponent;
-            EditOrderItemPage editPage = orderMakerBorder.Child as EditOrderItemPage;
 
-            int i = (o.DataContext as Order).list.IndexOf(editPage.DataContext as IOrderItem);
+            int i = (o.DataContext as Order).list.IndexOf((orderMakerBorder.Child as UserControl).DataContext as IOrderItem);
 
             o.orderItemsListView.Items.RemoveAt(i);
             (o.DataContext as Order).list.RemoveAt(i);
@@ -90,7 +100,9 @@ namespace PointOfSale
         void beginEditing(object sender, RoutedEventArgs e)
         {
             var o = orderCompBorder.Child as OrderComponent;
-            openNewEditPage((o.orderItemsListView.SelectedItem as OrderCompItem).DataContext as IOrderItem);
+            var item = (o.orderItemsListView.SelectedItem as OrderCompItem).DataContext as IOrderItem;
+            if (item is Combo) openComboEditPage(item);
+            else openNewEditPage(item);
         }
 
         /// <summary>
@@ -101,6 +113,40 @@ namespace PointOfSale
         /// <param name="e"></param>
         void finishEditing(object sender, RoutedEventArgs e)
         {
+            if (!(orderMakerBorder.Child is EditComboPage))
+            {
+                foreach (UserControl uc in (orderCompBorder.Child as OrderComponent).orderItemsListView.Items)
+                {
+                    if (uc.DataContext is Combo combo)
+                    {
+                        IOrderItem i = (orderMakerBorder.Child as EditOrderItemPage).DataContext as IOrderItem;
+                        if (i is Drink)
+                        {
+                            if (i == combo.Drink)
+                            {
+                                openComboEditPage(combo);
+                                return;
+                            }
+                        }
+                        else if (i is Side)
+                        {
+                            if (i == combo.Side)
+                            {
+                                openComboEditPage(combo);
+                                return;
+                            }
+                        }
+                        else if (i is Entree)
+                        {
+                            if (i == combo.Entree)
+                            {
+                                openComboEditPage(combo);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
             openNewAddPage();
         }
 
@@ -117,6 +163,47 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Allows the user to edit the entree of a combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void editEntree(object sender, RoutedEventArgs e)
+        {
+            openNewEditPage(((orderMakerBorder.Child as EditComboPage).DataContext as Combo).Entree);
+            deleteButton.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Allows the user to edit the side of a combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void editSide(object sender, RoutedEventArgs e)
+        {
+            openNewEditPage(((orderMakerBorder.Child as EditComboPage).DataContext as Combo).Side);
+            deleteButton.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Allows the user to edit the drink of a combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void editDrink(object sender, RoutedEventArgs e)
+        {
+            openNewEditPage(((orderMakerBorder.Child as EditComboPage).DataContext as Combo).Drink);
+            deleteButton.Visibility = Visibility.Collapsed;
+        }
+
+
+        void checkout(object sender, RoutedEventArgs e)
+        {
+            nonCheckoutGUI.Visibility = Visibility.Collapsed;
+            checkoutGUI.Visibility = Visibility.Visible;
+            checkoutGUI.Child = new CashOrCredit((orderCompBorder.Child as OrderComponent).DataContext as Order);
+        }
+
+        /// <summary>
         /// Opens a page allowing the user to edit an item in the order
         /// </summary>
         /// <param name="indexOfItemToEdit"></param>
@@ -128,12 +215,16 @@ namespace PointOfSale
             editButton.Visibility = Visibility.Collapsed;
             deleteButton.Visibility = Visibility.Visible;
             doneButton.Visibility = Visibility.Visible;
+
+            entreeButton.Visibility = Visibility.Collapsed;
+            sideButton.Visibility = Visibility.Collapsed;
+            drinkButton.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
         /// Opens a page that allows the user to add an item to the order
         /// </summary>
-        void openNewAddPage()
+        public void openNewAddPage()
         {
             orderMakerBorder.Child = new AddOrderItemPage();
 
@@ -141,6 +232,27 @@ namespace PointOfSale
             editButton.Visibility = Visibility.Visible;
             deleteButton.Visibility = Visibility.Collapsed;
             doneButton.Visibility = Visibility.Collapsed;
+
+            entreeButton.Visibility = Visibility.Collapsed;
+            sideButton.Visibility = Visibility.Collapsed;
+            drinkButton.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Opens a page that allows the user to add a combo to the order
+        /// </summary>
+        void openComboEditPage(IOrderItem toEdit)
+        {
+            orderMakerBorder.Child = new EditComboPage(toEdit);
+
+            addButton.Visibility = Visibility.Collapsed;
+            editButton.Visibility = Visibility.Collapsed;
+            deleteButton.Visibility = Visibility.Visible;
+            doneButton.Visibility = Visibility.Visible;
+
+            entreeButton.Visibility = Visibility.Visible;
+            sideButton.Visibility = Visibility.Visible;
+            drinkButton.Visibility = Visibility.Visible;
         }
     }
 }
