@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+	<h1>Welcome to the Bleakwind Buffet</h1>
+	<p>
+		We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+		Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+		Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
+		You’ve had a hard adventure and earned your loot, so spend it with us!.
+	</p>
+
+	<h4>Before you order:</h4>
+	<p>
+		Don't forget! You can make a combo out of any combination of one entree, 
+		one side, and one drink in order to get $1 off of the price of your order!
+	</p>
+
+	<h2>Entrees</h2>
+	@foreach ((string, double, uint) item in MenuProxy.Entrees())
+	{
+		<div class="menu-item">
+			<p class="item-name">@item.Item1</p>
+			<p class="calories-or-price">Price: $@item.Item2</p>
+			<p class="calories-or-price">Calories: @item.Item3</p>
+		</div>
+	}
+	<h2>Sides</h2>
+	@foreach ((string, double, uint) item in MenuProxy.Sides())
+	{
+		<div class="menu-item">
+			<p class="item-name">@item.Item1</p>
+			<p class="calories-or-price">Price: $@item.Item2</p>
+			<p class="calories-or-price">Calories: @item.Item3</p>
+		</div>
+	}
+	<h2>Drinks</h2>
+	@foreach ((string, double, uint) item in MenuProxy.Drinks())
+	{
+		<div class="menu-item">
+			<p class="item-name">@item.Item1</p>
+			<p class="calories-or-price">Price: $@item.Item2</p>
+			<p class="calories-or-price">Calories: @item.Item3</p>
+		</div>
+	}
+</div>
