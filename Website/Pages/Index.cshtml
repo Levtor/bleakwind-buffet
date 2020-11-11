@@ -1,49 +1,102 @@
 ﻿@page
 @model IndexModel
 @{
-	ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-	<h1>Welcome to the Bleakwind Buffet</h1>
-	<p>
-		We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
-		Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
-		Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
-		You’ve had a hard adventure and earned your loot, so spend it with us!.
-	</p>
 
-	<h4>Before you order:</h4>
-	<p>
-		Don't forget! You can make a combo out of any combination of one entree, 
-		one side, and one drink in order to get $1 off of the price of your order!
-	</p>
+<form id="search-and-results">
+    <div id="search">
+        <div class="text-center">
+            <h1>Welcome to the Bleakwind Buffet</h1>
+            <p>
+                We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+                Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+                Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
+                You’ve had a hard adventure and earned your loot, so spend it with us!.
+            </p>
 
-	<h2>Entrees</h2>
-	@foreach ((string, double, uint) item in MenuProxy.Entrees())
-	{
-		<div class="menu-item">
-			<p class="item-name">@item.Item1</p>
-			<p class="calories-or-price">Price: $@item.Item2</p>
-			<p class="calories-or-price">Calories: @item.Item3</p>
-		</div>
-	}
-	<h2>Sides</h2>
-	@foreach ((string, double, uint) item in MenuProxy.Sides())
-	{
-		<div class="menu-item">
-			<p class="item-name">@item.Item1</p>
-			<p class="calories-or-price">Price: $@item.Item2</p>
-			<p class="calories-or-price">Calories: @item.Item3</p>
-		</div>
-	}
-	<h2>Drinks</h2>
-	@foreach ((string, double, uint) item in MenuProxy.Drinks())
-	{
-		<div class="menu-item">
-			<p class="item-name">@item.Item1</p>
-			<p class="calories-or-price">Price: $@item.Item2</p>
-			<p class="calories-or-price">Calories: @item.Item3</p>
-		</div>
-	}
-</div>
+            <h4>Before you order:</h4>
+            <p>
+                Don't forget! You can make a combo out of any combination of one entree,
+                one side, and one drink in order to get $1 off of the price of your order!
+            </p>
+        </div>
+
+        <input type="text" name="SearchString" value="@Model.SearchString" />
+        <input type="submit" value="Search">
+    </div>
+    <div id="filters">
+
+        <h4>Categories</h4>
+        <label>
+            <input type="checkbox" name="IncludedCategories" value="Entrees" checked="@Model.IncludedCategories.Contains("Entrees")" />
+            Entrees
+        </label>
+        <label>
+            <input type="checkbox" name="IncludedCategories" value="Sides" checked="@Model.IncludedCategories.Contains("Sides")" />
+            Sides
+        </label>
+        <label>
+            <input type="checkbox" name="IncludedCategories" value="Drinks" checked="@Model.IncludedCategories.Contains("Drinks")" />
+            Drinks
+        </label>
+
+        <h4>Price:</h4>
+        <div>
+            Between
+            $<input name="PriceMin" type="number" min="0" max="100" step="0.01" placeholder="min" value="@Model.PriceMin" />
+            and
+            $<input name="PriceMax" type="number" min="0" max="100" step="0.01" placeholder="max" value="@Model.PriceMax" />
+        </div>
+
+        <h4>Calories:</h4>
+        <div>
+            Between
+            <input name="CalMin" type="number" min="0" max="2000" step="1" placeholder="min" value="@Model.CalMin" />
+            and
+            <input name="CalMax" type="number" min="0" max="2000" step="1" placeholder="max" value="@Model.CalMax" />
+        </div>
+
+    </div>
+
+    <div class="text-center">
+        @if (BleakwindBuffet.Data.Menu.FilterByCategory(Model.Items, new string[] { "Entrees" }).Count() > 0)
+        {
+            <h2>Entrees</h2>
+        }
+        @foreach (BleakwindBuffet.Data.IOrderItem item in BleakwindBuffet.Data.Menu.FilterByCategory(Model.Items, new string[] { "Entrees" }))
+        {
+            <div class="menu-item">
+                <p class="item-name">@item.ToString()</p>
+                <p class="calories-or-price">Price: $@item.Price</p>
+                <p class="calories-or-price">Calories: @item.Calories</p>
+            </div>
+        }
+        @if (BleakwindBuffet.Data.Menu.FilterByCategory(Model.Items, new string[] { "Sides" }).Count() > 0)
+        { 
+            <h2>Sides</h2>
+        }
+        @foreach (BleakwindBuffet.Data.IOrderItem item in BleakwindBuffet.Data.Menu.FilterByCategory(Model.Items, new string[] { "Sides" }))
+        {
+            <div class="menu-item">
+                <p class="item-name">@item.ToString()</p>
+                <p class="calories-or-price">Price: $@item.Price</p>
+                <p class="calories-or-price">Calories: @item.Calories</p>
+            </div>
+        }
+        @if (BleakwindBuffet.Data.Menu.FilterByCategory(Model.Items, new string[] { "Drinks" }).Count() > 0)
+        {
+            <h2>Drinks</h2>
+        }
+        @foreach (BleakwindBuffet.Data.IOrderItem item in BleakwindBuffet.Data.Menu.FilterByCategory(Model.Items, new string[] { "Drinks" }))
+        {
+            <div class="menu-item">
+                <p class="item-name">@item.ToString()</p>
+                <p class="calories-or-price">Price: $@item.Price</p>
+                <p class="calories-or-price">Calories: @item.Calories</p>
+            </div>
+        }
+    </div>
+</form>
+

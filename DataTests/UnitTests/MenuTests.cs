@@ -15,6 +15,8 @@ using BleakwindBuffet.Data.Enums;
 using Xunit;
 using BleakwindBuffet.Data;
 using System.Resources;
+using System.Linq;
+using System.Collections.Specialized;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -109,13 +111,13 @@ namespace BleakwindBuffet.DataTests.UnitTests
             IEnumerable<IOrderItem> yield = Menu.Sides();
             List<IOrderItem> list = yield as List<IOrderItem>;
             Side check;
-            for (int i=0; i<12; i+=3)
+            for (int i = 0; i < 12; i += 3)
             {
                 check = list[i] as Side;
                 Assert.Equal(Size.Small, check.Size);
-                check = list[i+1] as Side;
+                check = list[i + 1] as Side;
                 Assert.Equal(Size.Medium, check.Size);
-                check = list[i+2] as Side;
+                check = list[i + 2] as Side;
                 Assert.Equal(Size.Large, check.Size);
             }
         }
@@ -144,14 +146,14 @@ namespace BleakwindBuffet.DataTests.UnitTests
             List<IOrderItem> list = yield as List<IOrderItem>;
             SailorSoda check;
             SodaFlavor checkTo;
-            for (int i = 12; i < 30; i +=3)
+            for (int i = 12; i < 30; i += 3)
             {
                 checkTo = (SodaFlavor)((i - 12) / 3);
                 check = list[i] as SailorSoda;
                 Assert.Equal(checkTo, check.Flavor);
-                check = list[i+1] as SailorSoda;
+                check = list[i + 1] as SailorSoda;
                 Assert.Equal(checkTo, check.Flavor);
-                check = list[i+2] as SailorSoda;
+                check = list[i + 2] as SailorSoda;
                 Assert.Equal(checkTo, check.Flavor);
             }
         }
@@ -269,6 +271,103 @@ namespace BleakwindBuffet.DataTests.UnitTests
                 check = list[i + 2] as SailorSoda;
                 Assert.Equal(checkTo, check.Flavor);
             }
+        }
+
+        [Fact]
+        public void NullInputsDontChangeList()
+        {
+            IEnumerable<IOrderItem> yield = Menu.FullMenu();
+
+            var check = Menu.Search(yield, null);
+            Assert.Equal(yield, check);
+
+            check = Menu.FilterByCategory(yield, null);
+            Assert.Equal(yield, check);
+
+            check = Menu.FilterByCalories(yield, null, null);
+            Assert.Equal(yield, check);
+
+            check = Menu.FilterByPrice(yield, null, null);
+            Assert.Equal(yield, check);
+        }
+
+        [Fact]
+        public void SearchWorks()
+        {
+            var all = Menu.FullMenu();
+            var list = new List<IOrderItem>();
+            foreach (IOrderItem i in all)
+            {
+                if (i is AretinoAppleJuice) list.Add(i);
+            }
+            Assert.Equal(list, Menu.Search(all, "aretino"));
+
+            Assert.Empty(Menu.Search(Menu.FullMenu(), "zzzzzzzzzz"));
+
+            Assert.Equal(all, Menu.Search(all, " "));
+        }
+
+        [Fact]
+        public void FiltersByCategory()
+        {
+            var all = Menu.FullMenu();
+            Assert.Equal(all, Menu.FilterByCategory(all, new List<string>()));
+            Assert.Equal(all, Menu.FilterByCategory(all, new List<string>() { "Drinks", "Entrees", "Sides" }));
+
+            var list = new List<IOrderItem>();
+            foreach (IOrderItem i in all)
+            {
+                if (i is Drink) list.Add(i);
+            }
+            Assert.Equal(list, Menu.FilterByCategory(all, new List<string>() { "Drinks" }));
+
+            list.Clear();
+            foreach (IOrderItem i in all)
+            {
+                if (i is Entree || i is Side) list.Add(i);
+            }
+            Assert.Equal(list, Menu.FilterByCategory(all, new List<string>() { "Entrees", "Sides" }));
+
+        }
+
+        [Fact]
+        public void FiltersByCalories()
+        {
+            var all = Menu.FullMenu();
+            var l9 = new List<IOrderItem>();
+            var m300 = new List<IOrderItem>();
+            var e10 = new List<IOrderItem>();
+            foreach(IOrderItem i in all)
+            {
+                if (i.Calories == 10) e10.Add(i);
+                else if (i.Calories > 300) m300.Add(i);
+                else if (i.Calories < 9) l9.Add(i);
+            }
+            Assert.Equal(l9, Menu.FilterByCalories(all, 9, null));
+            Assert.Equal(m300, Menu.FilterByCalories(all, null, 300));
+            Assert.Equal(e10, Menu.FilterByCalories(all, 10, 10));
+            Assert.Equal(new List<IOrderItem>(), Menu.FilterByCalories(all, 9, 300));
+            Assert.Equal(all, Menu.FilterByCalories(all, 2000, 0));
+        }
+
+        [Fact]
+        public void FiltersByPrice()
+        {
+            var all = Menu.FullMenu();
+            var l100 = new List<IOrderItem>();
+            var m750 = new List<IOrderItem>();
+            var e201 = new List<IOrderItem>();
+            foreach (IOrderItem i in all)
+            {
+                if (i.Price == 2.01) e201.Add(i);
+                else if (i.Price > 7.50) m750.Add(i);
+                else if (i.Price < 1) l100.Add(i);
+            }
+            Assert.Equal(l100, Menu.FilterByPrice(all, 1, null));
+            Assert.Equal(m750, Menu.FilterByPrice(all, null, 7.5));
+            Assert.Equal(e201, Menu.FilterByPrice(all, 2.01, 2.01));
+            Assert.Equal(new List<IOrderItem>(), Menu.FilterByPrice(all, 1, 7.5));
+            Assert.Equal(all, Menu.FilterByPrice(all, 100, 0));
         }
     }
 }
