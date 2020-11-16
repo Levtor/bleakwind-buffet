@@ -115,5 +115,15 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Smokehouse Skeleton";
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

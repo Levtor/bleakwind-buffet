@@ -307,5 +307,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             order.Decaf = decaf;
             Assert.Equal(order.ToString(), name);
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Fair trade, fresh ground dark roast coffee.";
+            var order = new CandlehearthCoffee();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

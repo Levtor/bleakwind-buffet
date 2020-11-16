@@ -164,5 +164,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             order.Size = size;
             Assert.Equal(order.ToString(), name);
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Crispy fried potato waffle fries.";
+            var order = new DragonbornWaffleFries();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

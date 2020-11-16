@@ -6,6 +6,9 @@ using BleakwindBuffet.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
 
 namespace Website.Pages
 {
@@ -48,6 +51,8 @@ namespace Website.Pages
             SearchString = Request.Query["SearchString"];
             IncludedCategories = Request.Query["IncludedCategories"];
 
+            Items = Menu.FullMenu();
+
             string temp;
             temp = Request.Query["CalMin"];
             if (temp == null || temp.Equals("")) CalMin = null;
@@ -61,12 +66,57 @@ namespace Website.Pages
             temp = Request.Query["PriceMax"];
             if (temp == null || temp.Equals("")) PriceMax = null;
             else PriceMax = Convert.ToDouble(temp);
+            double pMin;
+            double pMax;
+            uint cMin;
+            uint cMax;
+            if (PriceMax == null) pMax = 2000;
+            else pMax = (double)PriceMax;
+            if (PriceMin == null) pMin = 0;
+            else pMin = (double)PriceMin;
+            if (CalMax == null) cMax = 200000;
+            else cMax = (uint)CalMax;
+            if (CalMin == null) cMin = 0;
+            else cMin = (uint)CalMin;
+            Items = Items.Where(item =>
+                item.Price >= pMin &&
+                item.Price <= pMax &&
+                item.Calories >= cMin &&
+                item.Calories <= cMax);
 
-            Items = Menu.FullMenu();
-            Items = Menu.Search(Items, SearchString);
-            Items = Menu.FilterByCategory(Items, IncludedCategories);
-            Items = Menu.FilterByCalories(Items, CalMax, CalMin);
-            Items = Menu.FilterByPrice(Items, PriceMax, PriceMin);
+            if (IncludedCategories != null && IncludedCategories.Count() > 0)
+            {
+                Items = Items.Where(item =>
+                    item is Drink && IncludedCategories.Contains("Drinks") ||
+                    item is Entree && IncludedCategories.Contains("Entrees") ||
+                    item is Side && IncludedCategories.Contains("Sides"));
+            }
+
+            if (SearchString != null)
+            {
+                string[] strs = SearchString.Split(' ');
+                Items = Items.Where(item => ContainsOneOf(strs, item));
+            }
+        }
+
+        /// <summary>
+        /// Determines whether the passed IOrderItem's description or ToString contains
+        /// at least one of the strings in the passed array
+        /// </summary>
+        /// <param name="strings">the strings being checked for</param>
+        /// <param name="item">the IOrderItem being evaluated</param>
+        /// <returns>whether the IOrderItem's text has one of the strings</returns>
+        private bool ContainsOneOf(string[] strings, IOrderItem item)
+        {
+            foreach (string term in strings)
+            {
+                if (term.Length > 0)
+                {
+                    if (item.Description.ToLower().Contains(term.ToLower())) return true;
+                    if (item.ToString().ToLower().Contains(term.ToLower())) return true;
+                }
+            }
+            return false;
         }
     }
 }

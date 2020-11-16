@@ -67,5 +67,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             Assert.Equal("Thugs T-Bone", order.ToString());
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Juicy T-Bone, not much else to say.";
+            var order = new ThugsTBone();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

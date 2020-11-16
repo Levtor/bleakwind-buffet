@@ -107,5 +107,15 @@ namespace BleakwindBuffet.Data.Sides
             sb.Append(" Dragonborn Waffle Fries");
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "Crispy fried potato waffle fries.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

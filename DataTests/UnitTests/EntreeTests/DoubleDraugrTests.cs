@@ -487,5 +487,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             Assert.Equal("Double Draugr", order.ToString());
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.";
+            var order = new DoubleDraugr();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

@@ -282,5 +282,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             Assert.Equal("Smokehouse Skeleton", order.ToString());
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+            var order = new SmokehouseSkeleton();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

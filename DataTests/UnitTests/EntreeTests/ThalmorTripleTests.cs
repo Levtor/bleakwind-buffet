@@ -590,5 +590,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             Assert.Equal("Thalmor Triple", order.ToString());
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+            var order = new ThalmorTriple();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

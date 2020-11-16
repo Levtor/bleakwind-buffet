@@ -323,11 +323,20 @@ namespace BleakwindBuffet.Data
             var ret = new List<IOrderItem>();
             foreach (IOrderItem item in list)
             {
-                bool add = true;
+                bool add = false;
                 foreach (string term in terms)
                 {
-                    //if (!item.ToString().Contains(term, StringComparison.CurrentCultureIgnoreCase)) add = false;
-                    if (!item.ToString().ToLower().Contains(term.ToLower())) add = false;
+                    //if (!item.ToString().Contains(term, StringComparison.CurrentCultureIgnoreCase))
+                    if (item.ToString().ToLower().Contains(term.ToLower()))
+                    {
+                        add = true;
+                        break;
+                    }
+                    if (item.Description.ToLower().Contains(term.ToLower()))
+                    {
+                        add = true;
+                        break;
+                    }
                 }
                 if (add) ret.Add(item);
             }

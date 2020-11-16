@@ -271,5 +271,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             order.Size = size;
             Assert.Equal(order.ToString(), name);
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "It’s water. Just water.";
+            var order = new WarriorWater();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

@@ -274,5 +274,13 @@ namespace BleakwindBuffet.DataTests.UnitTests
                 order.Entree = new SmokehouseSkeleton();
             });
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "";
+            var order = new Combo();
+            Assert.Equal(str, order.Description);
+        }
     }
 }

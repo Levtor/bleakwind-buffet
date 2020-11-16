@@ -165,5 +165,7 @@ namespace BleakwindBuffet.Data
         {
             return "Combo";
         }
+
+        public string Description { get { return ""; } }
     }
 }

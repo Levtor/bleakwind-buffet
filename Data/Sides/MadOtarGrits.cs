@@ -107,5 +107,15 @@ namespace BleakwindBuffet.Data.Sides
             sb.Append(" Mad Otar Grits");
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "Cheesey Grits.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

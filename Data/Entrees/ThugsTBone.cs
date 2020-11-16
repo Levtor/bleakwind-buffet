@@ -46,5 +46,15 @@ namespace BleakwindBuffet.Data.Entrees
         {
             return "Thugs T-Bone";
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "Juicy T-Bone, not much else to say.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

@@ -107,5 +107,15 @@ namespace BleakwindBuffet.Data.Sides
             sb.Append(" Vokun Salad");
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

@@ -129,5 +129,15 @@ namespace BleakwindBuffet.Data.Drinks
             sb.Append(" Warrior Water"); 
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "It’s water. Just water.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

@@ -162,5 +162,15 @@ namespace BleakwindBuffet.Data.Drinks
             sb.Append(" Candlehearth Coffee");
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        string description = "Fair trade, fresh ground dark roast coffee.";
+
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public override string Description { get { return description; } }
     }
 }

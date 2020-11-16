@@ -231,5 +231,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 
             Assert.Equal("Philly Poacher", order.ToString());
         }
+
+        [Fact]
+        public void HasCorrectDescription()
+        {
+            string str = "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+            var order = new PhillyPoacher();
+            Assert.Equal(str, order.Description);
+        }
     }
 }
