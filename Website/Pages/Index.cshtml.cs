@@ -92,7 +92,7 @@ namespace Website.Pages
                     item is Side && IncludedCategories.Contains("Sides"));
             }
 
-            if (SearchString != null)
+            if (SearchString != null && SearchString != "")
             {
                 string[] strs = SearchString.Split(' ');
                 Items = Items.Where(item => ContainsOneOf(strs, item));
